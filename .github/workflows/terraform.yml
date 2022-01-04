@@ -14,6 +14,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Build for tf-next
+        id: build
+        run: npm run tf-next
+
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
