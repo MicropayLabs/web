@@ -104,7 +104,7 @@ module "tf_next" {
   cloudfront_external_id         = aws_cloudfront_distribution.distribution.id
   cloudfront_external_arn        = aws_cloudfront_distribution.distribution.arn
 
-  deployment_name = "terraform-nextjs-micropay-web"
+  deployment_name = "tf-nextjs-micropay-web"
   providers = {
     aws.global_region = aws.global_region
   }
@@ -125,7 +125,7 @@ module "tf_next" {
 resource "aws_cloudfront_distribution" "distribution" {
   enabled             = true
   is_ipv6_enabled     = true
-  comment             = "terraform-nextjs-micropay-web"
+  comment             = "tf-nextjs-micropay-web"
   aliases             = [var.custom_domain]
   default_root_object = module.tf_next.cloudfront_default_root_object
 
