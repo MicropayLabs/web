@@ -5,11 +5,6 @@ terraform {
       version = "~> 3.0"
     }
   }
-  backend "s3" {
-    bucket = "micropay-tf-backend-storage"
-    key    = "state/infra"
-    region = "us-west-2"
-  }
   cloud {
     organization = "micropay"
 
