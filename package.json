@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "tf-next": "tf-next build"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.2",
@@ -32,6 +33,7 @@
     "autoprefixer": "^10.4.0",
     "postcss": "^8.4.4",
     "tailwindcss": "^3.0.0",
+    "tf-next": "^0.10.2",
     "typescript": "^4.5.4"
   }
 }

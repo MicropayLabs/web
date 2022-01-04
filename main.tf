@@ -5,14 +5,9 @@ terraform {
       version = "~> 3.0"
     }
   }
-  backend "s3" {
-    bucket  = "micropay-tf-backend-storage"
-    key     = "state/infra"
-    region  = "us-west-2"
-  }
+
   cloud {
     organization = "micropay"
-
     workspaces {
       name = "gh-actions"
     }
@@ -49,7 +44,7 @@ variable "custom_domain_zone_name" {
   description = "The Route53 zone name"
   type        = string
   # default     = "example.com."
-  default     = "micropay.gg."
+  default = "micropay.gg."
 }
 
 
@@ -109,7 +104,7 @@ module "tf_next" {
   cloudfront_external_id         = aws_cloudfront_distribution.distribution.id
   cloudfront_external_arn        = aws_cloudfront_distribution.distribution.arn
 
-  deployment_name = "terraform-nextjs-micropay-web"
+  deployment_name = "tf-nextjs-micropay-web"
   providers = {
     aws.global_region = aws.global_region
   }
@@ -130,7 +125,7 @@ module "tf_next" {
 resource "aws_cloudfront_distribution" "distribution" {
   enabled             = true
   is_ipv6_enabled     = true
-  comment             = "terraform-nextjs-micropay-web"
+  comment             = "tf-nextjs-micropay-web"
   aliases             = [var.custom_domain]
   default_root_object = module.tf_next.cloudfront_default_root_object
 
