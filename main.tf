@@ -8,7 +8,6 @@ terraform {
 
   cloud {
     organization = "micropay"
-
     workspaces {
       name = "gh-actions"
     }
