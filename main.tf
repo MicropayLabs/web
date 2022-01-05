@@ -47,6 +47,12 @@ variable "custom_domain_zone_name" {
   default = "micropay.gg."
 }
 
+variable "jwt_secret" {
+  description = "JWT_SECRET"
+  type        = string
+  sensitive   = true
+}
+
 
 #######################
 # Route53 Domain record
@@ -109,7 +115,7 @@ module "tf_next" {
     aws.global_region = aws.global_region
   }
   lambda_environment_variables = {
-
+    JWT_SECRET = var.jwt_secret
   }
 
   # Uncomment when using in the cloned monorepo for tf-next development
