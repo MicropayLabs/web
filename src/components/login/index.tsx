@@ -7,6 +7,7 @@ export const Login = ({ onLoggedIn }): JSX.Element => {
 	const [message, setMessage] = useState('Login with Metamask'); // Loading button state
 
 	const handleClick = async () => {
+		try {
 		// Check if MetaMask is installed -- MetaMask injects window.ethereum into each page
 		if (!(window as any).ethereum) {
 			window.alert('Please install MetaMask first.');
@@ -59,6 +60,9 @@ export const Login = ({ onLoggedIn }): JSX.Element => {
 				window.alert(err);
 				setMessage('Login with Metamask');
 			});
+		} catch (err) {
+			alert(err);
+		}
 	};
 
 	return (

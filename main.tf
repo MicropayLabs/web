@@ -108,6 +108,9 @@ module "tf_next" {
   providers = {
     aws.global_region = aws.global_region
   }
+  lambda_environment_variables = {
+
+  }
 
   # Uncomment when using in the cloned monorepo for tf-next development
   # source = "../.."
