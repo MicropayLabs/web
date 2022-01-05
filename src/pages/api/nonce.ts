@@ -14,7 +14,7 @@ export default async function users(req: NextApiRequest, res: NextApiResponse) {
 		if (typeof publicAddress !== 'string' || !isValidPublicAddress(publicAddress as string)) {
 			return res.status(400).send({ error: 'Invalid publicAddress' });
 		}
-		return await updateNonce(publicAddress as string)
+		await updateNonce(publicAddress as string)
 			.then(({ nonce }) => res.status(200).send({ publicAddress, nonce }))
 			.catch((err) => res.status(500).send(err));
 	} else {

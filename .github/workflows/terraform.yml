@@ -17,6 +17,8 @@ jobs:
       - name: Build for tf-next
         id: build
         run: npm ci && npm run tf-next
+        env:
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1

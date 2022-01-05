@@ -38,7 +38,6 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
 				return res.status(401).send({ error: 'Invalid Signature' });
 			}
 		} catch (err) {
-			console.log(err);
 			return res.status(401).send({ error: 'Signature verification failed' });
 		}
 

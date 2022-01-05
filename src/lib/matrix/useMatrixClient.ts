@@ -32,6 +32,7 @@ export const getMatrixClient = () => _matrixClient;
  * @param loginToken The login token to use to create the MatrixClient.
  */
 export const initMatrixClient = async (loginToken: string): Promise<void> => {
+	const MATRIX_URL = 'https://matrix.micropay.gg';
 	// Options sent to the matrix server when creating the client.
 	const options = {
 		method: 'POST',
@@ -45,7 +46,7 @@ export const initMatrixClient = async (loginToken: string): Promise<void> => {
 	// Create the client from the login token (username is the user's public address)
 	const createMatrixClient = ({ access_token: accessToken, user_id: userId }): MatrixClient => {
 		return sdk.createClient({
-			baseUrl: process.env.NEXT_PUBLIC_MATRIX_URL,
+			baseUrl: MATRIX_URL,
 			accessToken,
 			userId,
 		});
@@ -70,7 +71,7 @@ export const initMatrixClient = async (loginToken: string): Promise<void> => {
 	};
 
 	if (loginToken && !_matrixClient) {
-		await fetch(`${process.env.NEXT_PUBLIC_MATRIX_URL}/_matrix/client/r0/login`, options)
+		await fetch(`${MATRIX_URL}/_matrix/client/r0/login`, options)
 			.then((response) => response.json())
 			.then(createMatrixClient)
 			.then(startMatrixClient)
