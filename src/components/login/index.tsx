@@ -61,7 +61,14 @@ export const Login = ({ onLoggedIn }): JSX.Element => {
 			};
 
 			// Look if user with current publicAddress is already present on backend
-			fetch(`/api/nonce?publicAddress=${publicAddress}`)
+			const options = {
+				method: 'POST',
+				body: JSON.stringify({ publicAddress }),
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			};
+			fetch('/api/nonce', options)
 				.then(toJSON)
 				.then(handleSignMessage) // Popup MetaMask confirmation modal to sign message
 				.then(handleAuthenticate) // Send signature to backend on the /auth route

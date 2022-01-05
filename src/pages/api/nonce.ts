@@ -5,9 +5,9 @@ import { updateNonce } from '@lib/supabase';
 /**
  * Returns the nonce for the given publicAddress.
  */
-export default async function users(req: NextApiRequest, res: NextApiResponse) {
-	if (req.method === 'GET') {
-		const { publicAddress } = req.query;
+export default async function nonce(req: NextApiRequest, res: NextApiResponse) {
+	if (req.method === 'POST') {
+		const { publicAddress } = req.body;
 		if (!publicAddress) {
 			return res.status(400).send({ error: 'Request should have publicAddress' });
 		}
