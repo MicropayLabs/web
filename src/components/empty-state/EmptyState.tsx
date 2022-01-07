@@ -19,9 +19,11 @@ export default function EmptyState() {
 	return (
 		<>
 			<div className="flex flex-col gap-3 justify-center mx-auto text-center">
-				<h1 className="text-3xl text-light-fg dark:text-dark-fg">Welcome to Micropay</h1>
+				<h1 className="text-3xl text-light-fg dark:text-dark-fg">
+					Welcome to Micropay
+				</h1>
 				<p className="text-md text-light-fg-muted dark:text-dark-fg-muted">
-					The buttons below don't do anything yet.
+					Making a DAO should be as easy as creating a group chat.
 				</p>
 				<div className="mt-8 flex flex-row gap-8">
 					<button
@@ -33,12 +35,13 @@ export default function EmptyState() {
 							'border border-light-green-emphasis dark:border-dark-green-emphasis',
 							'hover:border-light-green-fg dark:hover:border-dark-green-fg',
 							'shadow-md shadow-light-shadow-md dark:shadow-dark-shadow-md',
-							'hover:shadow-lg hover:shadow-light-shadow-lg dark:hover:shadow-dark-shadow-lg'
+							'hover:shadow-lg hover:shadow-light-shadow-lg dark:hover:shadow-dark-shadow-lg',
+							'outline-none'
 						)}
 						onClick={openModalDM}
 					>
 						<ChatIcon className="w-12 h-12 mx-auto mb-2" />
-						<span className="mx-auto">Send a direct message</span>
+						<span className="mx-auto">Send a DM</span>
 					</button>
 					<button
 						className={classnames(
@@ -54,7 +57,7 @@ export default function EmptyState() {
 						onClick={openModalDAO}
 					>
 						<PencilIcon className="w-12 h-12 mx-auto mb-2" />
-						<span className="mx-auto">Create your own DAO</span>
+						<span className="mx-auto">Create a DAO</span>
 					</button>
 					<button
 						className={classnames(
@@ -70,7 +73,7 @@ export default function EmptyState() {
 						onClick={() => alert('Do you even read?')}
 					>
 						<GlobeIcon className="w-12 h-12 mx-auto mb-2" />
-						<span className="mx-auto">Explore public DAOs</span>
+						<span className="mx-auto">Explore DAOs</span>
 					</button>
 				</div>
 			</div>
