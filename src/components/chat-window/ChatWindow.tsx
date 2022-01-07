@@ -32,14 +32,9 @@ export default function ChatWindow() {
 	}, [matrixClient]);
 
 	return matrixClient?.getRooms().length > 0 ? (
-		<section
-			className={classnames(
-				'flex flex-col w-full overflow-auto',
-				'text-light-fg dark:text-dark-fg'
-			)}
-		>
+		<section className={classnames('flex flex-col w-full', 'text-light-fg dark:text-dark-fg')}>
 			<ChatHeader room={room} />
-			<article className="flex-1 flex flex-col justify-end">
+			<main className="flex-1 flex flex-col justify-end overflow-y-scroll">
 				{events
 					.filter((event) => event.type === 'm.room.message')
 					.map((event, i, events) => (
@@ -52,7 +47,7 @@ export default function ChatWindow() {
 							timestamp={event.origin_server_ts}
 						/>
 					))}
-			</article>
+			</main>
 			<ChatFooter />
 		</section>
 	) : (

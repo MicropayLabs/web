@@ -18,7 +18,7 @@ export default function Message({ sender, prevSender, content, isLastMessage, ti
 			)}
 		>
 			{prevSender !== sender ? (
-				<Jazzicon className="w-10 h-10 mx-5 my-auto" address={userAddress} />
+				<Jazzicon className="w-10 h-10 mx-5 my-auto opacity-50" address={userAddress} />
 			) : (
 				<div className="w-20 flex flex-row justify-center">
 					<span

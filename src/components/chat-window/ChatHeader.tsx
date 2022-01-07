@@ -13,7 +13,7 @@ export default function ChatHeader({ room }) {
 				'bg-light-canvas-inset dark:bg-dark-canvas'
 			)}
 		>
-			<Jazzicon className="w-8 h-8" address={roomId} />
+			<Jazzicon className="w-8 h-8 opacity-50" address={roomId} />
 			<div
 				className={classnames(
 					'text-xl my-auto',
