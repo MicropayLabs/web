@@ -44,7 +44,10 @@ export const initMatrixClient = async (loginToken: string): Promise<void> => {
 	};
 
 	// Create the client from the login token (username is the user's public address)
-	const createMatrixClient = ({ access_token: accessToken, user_id: userId }): MatrixClient => {
+	const createMatrixClient = ({
+		access_token: accessToken,
+		user_id: userId,
+	}): MatrixClient => {
 		return sdk.createClient({
 			baseUrl: MATRIX_URL,
 			accessToken,
@@ -53,9 +56,11 @@ export const initMatrixClient = async (loginToken: string): Promise<void> => {
 	};
 
 	// Start the matrix client and configure it to sync that last 20 messages
-	const startMatrixClient = async (matrix: MatrixClient): Promise<MatrixClient> => {
+	const startMatrixClient = async (
+		matrix: MatrixClient
+	): Promise<MatrixClient> => {
 		matrix.startClient({
-			initialSyncLimit: 20,
+			initialSyncLimit: 25,
 		});
 		return matrix;
 	};
@@ -63,7 +68,6 @@ export const initMatrixClient = async (loginToken: string): Promise<void> => {
 	// Waits for the client to be 'PREPARED', then updates the instance and notifies the subscribers
 	const waitForSync = (client: MatrixClient): void => {
 		client.on('sync', (state, _prevState, _res) => {
-			console.log(state);
 			if (state === 'PREPARED') {
 				_updateSubscribers(client);
 			}

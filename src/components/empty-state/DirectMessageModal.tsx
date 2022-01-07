@@ -12,15 +12,16 @@ export default function DirectMessageModal({ isOpen, onClose }) {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const { room_id } = await matrixClient.createRoom({
-				room_alias_name: roomName,
-				visibility: Visibility.Private, // or Visibility.Public
-				invite: [], // a list of userIDs to invite
-				name: roomName,
-				topic: 'Direct Message',
-			});
-			console.log('Created room:', room_id);
-			onClose();
+			matrixClient
+				.createRoom({
+					room_alias_name: roomName,
+					visibility: Visibility.Public, // or Visibility.Public
+					invite: [], // a list of userIDs to invite
+					name: roomName,
+					topic: 'Direct Message',
+				})
+				.then(({ room_id }) => matrixClient.joinRoom(room_id))
+				.then(() => onClose());
 		} catch (err) {
 			console.log(err);
 			alert(err.message);
@@ -31,15 +32,21 @@ export default function DirectMessageModal({ isOpen, onClose }) {
 		<Modal isOpen={isOpen} onClose={onClose}>
 			<Dialog.Title
 				as="h1"
-				className={classnames('text-xl font-medium leading-6', 'text-light-fg dark:text-dark-fg')}
+				className={classnames(
+					'text-xl font-medium leading-6',
+					'text-light-fg dark:text-dark-fg'
+				)}
 			>
-				Create a Room
+				Send a DM
 			</Dialog.Title>
 			<div className="mt-2">
 				<p
-					className={classnames('text-sm', 'text-light-fg-subtle dark:text-dark-neutral-emphasis')}
+					className={classnames(
+						'text-sm',
+						'text-light-fg-subtle dark:text-dark-neutral-emphasis'
+					)}
 				>
-					Create a new room to start chatting with your friends.
+					Add your friends by their public address or ENS username.
 				</p>
 			</div>
 			<form className="mt-5 sm:flex sm:items-center" onSubmit={handleSubmit}>

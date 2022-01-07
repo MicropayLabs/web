@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { EmojiHappyIcon, FireIcon, PaperClipIcon, PlusCircleIcon } from '@heroicons/react/outline';
+import {
+	EmojiHappyIcon,
+	FireIcon,
+	PaperClipIcon,
+	PlusCircleIcon,
+} from '@heroicons/react/outline';
 import { useMatrixClient } from '@lib/matrix';
 import classnames from 'classnames';
 
@@ -24,7 +29,7 @@ export default function ChatFooter() {
 	}, [matrixClient]);
 
 	return (
-		<footer className="px-4 pb-4 mb-1 z-10">
+		<footer className="p-4 mb-1 z-10">
 			<div
 				className={classnames(
 					'flex flex-row gap-4 p-4 rounded-lg',
