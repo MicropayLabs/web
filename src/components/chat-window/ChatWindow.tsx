@@ -34,20 +34,22 @@ export default function ChatWindow() {
 	return matrixClient?.getRooms().length > 0 ? (
 		<section className={classnames('flex flex-col w-full', 'text-light-fg dark:text-dark-fg')}>
 			<ChatHeader room={room} />
-			<main className="flex-1 flex flex-col justify-end overflow-y-scroll">
-				{events
-					.filter((event) => event.type === 'm.room.message')
-					.map((event, i, events) => (
-						<Message
-							key={`${event.event_id}-${i}`}
-							sender={event.sender}
-							prevSender={i > 0 ? events[i - 1].sender : null}
-							content={event.content}
-							isLastMessage={i === events.length - 1}
-							timestamp={event.origin_server_ts}
-						/>
-					))}
-			</main>
+			<article className="flex-1 flex flex-col overflow-clip">
+				<div className="mr-0.5 scrollbar-example scrollbar-thin scrollbar-thumb-fg-subtle scrollbar-track-canvas-muted  scrollbar-thumb-rounded-full scrollbar-track-rounded-full">
+					{events
+						.filter((event) => event.type === 'm.room.message')
+						.map((event, i, events) => (
+							<Message
+								key={`${event.event_id}-${i}`}
+								sender={event.sender}
+								prevSender={i > 0 ? events[i - 1].sender : null}
+								content={event.content}
+								isLastMessage={i === events.length - 1}
+								timestamp={event.origin_server_ts}
+							/>
+						))}
+				</div>
+			</article>
 			<ChatFooter />
 		</section>
 	) : (

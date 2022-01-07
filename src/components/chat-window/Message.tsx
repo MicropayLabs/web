@@ -14,16 +14,20 @@ export default function Message({ sender, prevSender, content, isLastMessage, ti
 			className={classnames(
 				'group flex flex-row w-full py-0.5',
 				'hover:bg-light-canvas-subtle dark:hover:bg-dark-canvas-inset/30',
-				'text-light-fg dark:text-dark-fg'
+				'text-light-fg dark:text-dark-fg',
+				prevSender !== sender && 'mt-4'
 			)}
 		>
 			{prevSender !== sender ? (
-				<Jazzicon className="w-10 h-10 mx-5 my-auto opacity-50" address={userAddress} />
+				<div className="flex flex-col justify-start">
+					<Jazzicon className="w-10 h-10 mx-5 mt-2 opacity-75" address={userAddress} />
+				</div>
 			) : (
 				<div className="w-20 flex flex-row justify-center">
 					<span
 						className={classnames(
-							'font-display text-xs pt-1 text-transparent',
+							'font-display text-xs pt-1',
+							'text-light-canvas dark:text-dark-canvas',
 							'group-hover:text-light-neutral-muted dark:group-hover:text-dark-neutral-muted'
 						)}
 					>
@@ -33,14 +37,16 @@ export default function Message({ sender, prevSender, content, isLastMessage, ti
 			)}
 			<div className="flex-1 flex flex-col">
 				{prevSender !== sender && (
-					<div className="flex flex-row gap-2 items-baseline">
-						<span className="text-md font-medium text-white">{name}</span>
+					<div className="flex flex-row gap-2 my-1 items-baseline">
+						<span className="text-md font-bold text-light-fg dark:text-dark-fg/90">{name}</span>
 						<span className="font-display text-xs text-light-neutral-muted dark:text-dark-neutral-muted">
 							{new Date(timestamp).toLocaleDateString('en-US')}
 						</span>
 					</div>
 				)}
-				<span className="text-md text-light-fg-muted dark:text-dark-fg-muted">{content.body}</span>
+				<span className="text-md font-light text-light-fg/80 dark:text-dark-fg/80">
+					{content.body}
+				</span>
 			</div>
 			<span className="w-10 mx-5" />
 			{isLastMessage && (

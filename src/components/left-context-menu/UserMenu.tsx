@@ -22,7 +22,7 @@ export default function UserMenu({ address, onLogout }) {
 						'text-light-fg dark:text-dark-fg'
 					)}
 				>
-					<Jazzicon className="w-8 h-8 opacity-50" address={address} />
+					<Jazzicon className="w-8 h-8 opacity-75" address={address} />
 					<div className="flex-1 min-w-0">
 						<p className={classnames('text-md font-medium')}>{name}</p>
 						<p

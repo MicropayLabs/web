@@ -8,12 +8,12 @@ export default function ChatHeader({ room }) {
 	return (
 		<header
 			className={classnames(
-				'flex flex-row gap-4 m-4 p-3 rounded-lg z-10',
+				'flex flex-row gap-4 mx-4 mt-4 p-3 rounded-lg z-10',
 				'border-light-border dark:border-dark-border',
 				'bg-light-canvas-inset dark:bg-dark-canvas'
 			)}
 		>
-			<Jazzicon className="w-8 h-8 opacity-50" address={roomId} />
+			<Jazzicon className="w-8 h-8 opacity-75" address={roomId} />
 			<div
 				className={classnames(
 					'text-xl my-auto',
