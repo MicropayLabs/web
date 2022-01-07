@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import decodeJWT from 'jwt-decode';
-import { Login } from '@components/login';
+import { Landing } from '@components/landing';
 import LeftContextMenu from '@components/left-context-menu/LeftContextMenu';
 import ChatWindow from '@components/chat-window/ChatWindow';
 import { TokenPayload } from './api/auth';
@@ -44,7 +44,7 @@ export default function Home() {
 					<ChatWindow />
 				</>
 			) : (
-				<Login onLoggedIn={handleLoggedIn} />
+				<Landing onLoggedIn={handleLoggedIn} />
 			)}
 		</div>
 	);
