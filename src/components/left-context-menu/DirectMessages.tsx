@@ -5,7 +5,6 @@ import { Room } from 'matrix-js-sdk';
 
 export default function DirectMessages(): JSX.Element {
 	const [rooms, setRooms] = useState<Room[]>([]);
-	const [currentRoom, setCurrentRoom] = useState<Room | null>(null);
 	const matrixClient = useMatrixClient();
 
 	useEffect(() => {

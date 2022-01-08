@@ -10,18 +10,18 @@ import { IEvent } from 'matrix-js-sdk';
 export default function ChatWindow() {
 	const matrixClient = useMatrixClient();
 	const [messages, setMessages] = useState<Partial<IEvent>[]>([]);
-	const [roomName, setRoomName] = useState(undefined);
+	const [room, setRoom] = useState(undefined);
 
 	const updateRooms = () => {
 		const rooms = matrixClient.getVisibleRooms();
 		console.log(rooms ? `${rooms.length} room(s)` : 'no rooms found');
 		if (rooms.length === 0) {
 			console.log('no more rooms');
-			setRoomName(undefined);
+			setRoom(undefined);
 			setMessages([]);
 		} else {
 			console.log(rooms[0]);
-			setRoomName(rooms[0].name);
+			setRoom(rooms[0]);
 			setMessages(rooms[0].timeline.map((matrixEvent) => matrixEvent.event));
 		}
 	};
@@ -54,36 +54,36 @@ export default function ChatWindow() {
 		};
 	}, [matrixClient]);
 
-	return roomName ? (
+	return room ? (
 		<section
 			className={classnames(
 				'flex flex-col w-full h-screen',
 				'text-light-fg dark:text-dark-fg'
 			)}
 		>
-			<ChatHeader roomName={roomName} />
-			<article
-				className={classnames(
-					'mr-0.5 flex-1 flex flex-col-reverse',
-					'scrollbar-thin',
-					'scrollbar-thumb-canvas-overlay scrollbar-thumb-rounded-full',
-					'scrollbar-track-transparent'
-				)}
-			>
-				{messages
-					.filter((event) => event.type === 'm.room.message')
-					.map((msg, i, messages) => (
-						<Message
-							key={`${msg.event_id}-${i}`}
-							sender={msg.sender}
-							prevSender={i > 0 ? messages[i - 1].sender : undefined}
-							content={msg.content}
-							isLastMessage={i === messages.length - 1}
-							timestamp={msg.origin_server_ts}
-						/>
-					))
-					.reverse()}
-			</article>
+			<ChatHeader room={room} />
+				<article
+					className={classnames(
+						'mr-0.5 flex-1 flex flex-col-reverse',
+						'scrollbar-thin',
+						'scrollbar-thumb-canvas-overlay scrollbar-thumb-rounded-full',
+						'scrollbar-track-transparent'
+					)}
+				>
+					{messages
+						.filter((event) => event.type === 'm.room.message')
+						.map((msg, i, messages) => (
+							<Message
+								key={`${msg.event_id}-${i}`}
+								sender={msg.sender}
+								prevSender={i > 0 ? messages[i - 1].sender : undefined}
+								content={msg.content}
+								isLastMessage={i === messages.length - 1}
+								timestamp={msg.origin_server_ts}
+							/>
+						))
+						.reverse()}
+				</article>
 			<ChatFooter />
 		</section>
 	) : (
