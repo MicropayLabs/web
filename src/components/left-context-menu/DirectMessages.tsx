@@ -1,15 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import classnames from 'classnames';
 import { useMatrixClient } from '@lib/matrix';
+import { Room } from 'matrix-js-sdk';
 
-export default function Category({ title }): JSX.Element {
-	const [dms, setDMS] = useState([]);
+export default function DirectMessages(): JSX.Element {
+	const [rooms, setRooms] = useState<Room[]>([]);
 	const matrixClient = useMatrixClient();
 
 	useEffect(() => {
 		if (matrixClient) {
-			setDMS(matrixClient.getRooms());
+			setRooms(matrixClient.getVisibleRooms());
+			matrixClient.on('event', (event) => {
+				if (event.getType() === 'm.room.member') {
+					const { membership } = event.getContent();
+					if (membership === 'join') {
+						setRooms(matrixClient.getVisibleRooms());
+					} else if (membership === 'leave') {
+						matrixClient
+							.forget(event.getRoomId())
+							.then(() => setRooms(matrixClient.getVisibleRooms()));
+					}
+				} else if (event.getType() === 'm.room.name') {
+					setRooms(matrixClient.getVisibleRooms());
+				}
+			});
 		}
+		return () => {
+			matrixClient.removeAllListeners();
+		};
 	}, [matrixClient]);
 
 	return (
@@ -25,11 +43,11 @@ export default function Category({ title }): JSX.Element {
 						'uppercase'
 					)}
 				>
-					{title}
+					Direct Messages
 				</span>
 			</span>
 			<div className="flex flex-col gap-2">
-				{dms.map((room) => (
+				{rooms.map((room) => (
 					<div
 						key={room.roomId}
 						className={classnames(
@@ -37,7 +55,9 @@ export default function Category({ title }): JSX.Element {
 							'text-light-fg dark:text-dark-fg'
 						)}
 					>
-						<span>{room.name.substring(0, 20)}</span>
+						<span>
+							{room && room.name ? room.name.substring(0, 18) : 'Room Name'}
+						</span>
 						<button
 							className={classnames(
 								'text-3xl mr-1',

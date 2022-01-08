@@ -71,9 +71,7 @@ export default function UserMenu({ address, onLogout }) {
 											'hover:bg-light-red-fg/10 dark:hover:bg-dark-red-fg/5',
 											'hover:ring-1 hover:ring-light-red-fg dark:hover:ring-dark-red-fg'
 										)}
-										onClick={() => {
-											matrixClient.store.deleteAllData().then(() => onClose());
-										}}
+										onClick={() => matrixClient.store.deleteAllData()}
 									>
 										Nuke Server
 									</button>

@@ -6,6 +6,7 @@ import { useMatrixClient } from '@lib/matrix';
 import { Visibility } from 'matrix-js-sdk/lib/@types/partials';
 import { ethers } from 'ethers';
 import { shortenAddress } from '@lib/eth';
+import { v4 as uuid } from 'uuid';
 
 export default function DirectMessageModal({ isOpen, onClose }) {
 	const provider = new ethers.providers.Web3Provider((window as any).ethereum);
@@ -18,16 +19,19 @@ export default function DirectMessageModal({ isOpen, onClose }) {
 		const localPart = ensName?.toLowerCase() ?? friend;
 		const userId = `@${localPart}:${matrixClient.getDomain()}`;
 		try {
+			const randomName = uuid();
 			matrixClient
 				.createRoom({
-					room_alias_name: ensName ?? shortenAddress(friend),
-					name: ensName ?? shortenAddress(friend),
+					room_alias_name: randomName,
+					name: randomName,
 					visibility: Visibility.Private, // or Visibility.Public
 					invite: [userId], // a list of userIDs to invite
 					topic: 'Direct Message',
 				})
-				.then(({ room_id }) => matrixClient.joinRoom(room_id))
-				.then(() => onClose());
+				.then(({ room_id }) => {
+					onClose();
+					matrixClient.joinRoom(room_id);
+				});
 		} catch (err) {
 			console.log(err);
 			alert(err.message);

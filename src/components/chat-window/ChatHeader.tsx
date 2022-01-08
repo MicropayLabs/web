@@ -1,7 +1,7 @@
 import { parseMatrixRoom } from '@lib/matrix';
 import classnames from 'classnames';
 
-export default function ChatHeader({ room }) {
+export default function ChatHeader({ roomName }) {
 	return (
 		<header
 			className={classnames(
@@ -16,7 +16,7 @@ export default function ChatHeader({ room }) {
 					'text-light-fg-emphasis, dark:text-dark-fg-emphasis'
 				)}
 			>
-				{parseMatrixRoom(room?.name ?? 'Room Name')}
+				{parseMatrixRoom(roomName)}
 			</div>
 			<span className="flex-1" />
 		</header>

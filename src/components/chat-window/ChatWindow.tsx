@@ -5,40 +5,48 @@ import ChatFooter from './ChatFooter';
 import ChatHeader from './ChatHeader';
 import EmptyState from '../empty-state/EmptyState';
 import classnames from 'classnames';
-import { Room } from 'matrix-js-sdk';
+import { IEvent } from 'matrix-js-sdk';
 
 export default function ChatWindow() {
 	const matrixClient = useMatrixClient();
-	const [events, setEvents] = useState([]);
-	const [room, setRoom] = useState<Room>();
-	const [numRooms, setNumRooms] = useState(0);
+	const [messages, setMessages] = useState<Partial<IEvent>[]>([]);
+	const [roomName, setRoomName] = useState(undefined);
+
+	const updateRooms = () => {
+		const rooms = matrixClient.getVisibleRooms();
+		console.log(rooms ? `${rooms.length} room(s)` : 'no rooms found');
+		if (rooms.length === 0) {
+			console.log('no more rooms');
+			setRoomName(undefined);
+			setMessages([]);
+		} else {
+			console.log(rooms[0]);
+			setRoomName(rooms[0].name);
+			setMessages(rooms[0].timeline.map((matrixEvent) => matrixEvent.event));
+		}
+	};
 
 	useEffect(() => {
 		if (matrixClient) {
-			const rooms = matrixClient.getRooms();
-			console.log('rooms:', rooms);
-			if (rooms.length > 0) {
-				setRoom(rooms[0]);
-				setNumRooms(rooms.length);
-				setEvents(rooms[0].timeline.map((matrixEvent) => matrixEvent.event));
-				matrixClient.on(
-					'Room.timeline',
-					(matrixEvent, _room, _toStartOfTimeline) => {
-						if (matrixEvent.getType() === 'm.room.message') {
-							setEvents((oldEvents) => [...oldEvents, matrixEvent.event]);
-						}
-					}
-				);
-			}
-			matrixClient.on('m.room.create', (_event) =>
-				setNumRooms(matrixClient.getRooms().length)
-			);
-			matrixClient.on('m.room.member', (_event) =>
-				setNumRooms(matrixClient.getRooms().length)
-			);
+			updateRooms();
+			matrixClient.on('Room.timeline', (matrixEvent) => {
+				if (matrixEvent.getType() === 'm.room.message') {
+					setMessages((oldEvents) => [...oldEvents, matrixEvent.event]);
+				}
+			});
 			matrixClient.on('event', (event) => {
-				console.log('event:', event.getType());
+				console.log('recieved a new', event.getType(), 'event');
 				console.log(event);
+				if (event.getType() === 'm.room.member') {
+					const { membership } = event.getContent();
+					if (membership === 'join') {
+						updateRooms();
+					} else if (membership === 'leave') {
+						matrixClient.forget(event.getRoomId()).then(() => updateRooms());
+					}
+				} else if (event.getType() === 'm.room.name') {
+					updateRooms();
+				}
 			});
 		}
 		return () => {
@@ -46,14 +54,14 @@ export default function ChatWindow() {
 		};
 	}, [matrixClient]);
 
-	return numRooms > 0 ? (
+	return roomName ? (
 		<section
 			className={classnames(
 				'flex flex-col w-full h-screen',
 				'text-light-fg dark:text-dark-fg'
 			)}
 		>
-			<ChatHeader room={room} />
+			<ChatHeader roomName={roomName} />
 			<article
 				className={classnames(
 					'mr-0.5 flex-1 flex flex-col-reverse',
@@ -62,16 +70,16 @@ export default function ChatWindow() {
 					'scrollbar-track-transparent'
 				)}
 			>
-				{events
+				{messages
 					.filter((event) => event.type === 'm.room.message')
-					.map((event, i, events) => (
+					.map((msg, i, messages) => (
 						<Message
-							key={`${event.event_id}-${i}`}
-							sender={event.sender}
-							prevSender={i > 0 ? events[i - 1].sender : null}
-							content={event.content}
-							isLastMessage={i === events.length - 1}
-							timestamp={event.origin_server_ts}
+							key={`${msg.event_id}-${i}`}
+							sender={msg.sender}
+							prevSender={i > 0 ? messages[i - 1].sender : undefined}
+							content={msg.content}
+							isLastMessage={i === messages.length - 1}
+							timestamp={msg.origin_server_ts}
 						/>
 					))
 					.reverse()}

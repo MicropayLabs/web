@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ChatIcon, GlobeIcon, PencilIcon } from '@heroicons/react/solid';
+import { ChatIcon, PencilIcon } from '@heroicons/react/solid';
+import { GlobeAltIcon } from '@heroicons/react/outline';
 import DirectMessageModal from './DirectMessageModal';
 import CreateDAOModal from './CreateDAOModal';
 import classnames from 'classnames';
@@ -13,19 +14,17 @@ export default function EmptyState() {
 	const openModalDM = () => setIsOpenDM(true);
 	const closeModalDAO = () => setIsOpenDAO(false);
 	const openModalDAO = () => setIsOpenDAO(true);
-	const _closeModalExplore = () => _setIsOpenExplore(false);
-	const _openModalExplore = () => _setIsOpenExplore(true);
 
 	return (
 		<>
-			<div className="flex flex-col gap-3 justify-center mx-auto text-center">
+			<div className="flex flex-col w-full h-screen gap-3 justify-center mx-auto text-center">
 				<h1 className="text-3xl text-light-fg dark:text-dark-fg">
 					Welcome to Micropay
 				</h1>
 				<p className="text-md text-light-fg-muted dark:text-dark-fg-muted">
 					Making a DAO should be as easy as creating a group chat.
 				</p>
-				<div className="mt-8 flex flex-row gap-8">
+				<div className="mt-8 flex flex-row gap-8 justify-center">
 					<button
 						className={classnames(
 							'px-4 py-2 w-36 h-36 rounded-lg justify-center',
@@ -72,7 +71,7 @@ export default function EmptyState() {
 						)}
 						onClick={() => alert('Do you even read?')}
 					>
-						<GlobeIcon className="w-12 h-12 mx-auto mb-2" />
+						<GlobeAltIcon className="w-12 h-12 mx-auto mb-2" />
 						<span className="mx-auto">Explore DAOs</span>
 					</button>
 				</div>
