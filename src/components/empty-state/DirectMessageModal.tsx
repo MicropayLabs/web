@@ -14,11 +14,11 @@ export default function DirectMessageModal({ isOpen, onClose }) {
 	const matrixClient = useMatrixClient();
 
 	const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
-		e.preventDefault();
-		const ensName = await provider.resolveName(friend);
-		const localPart = ensName?.toLowerCase() ?? friend;
-		const userId = `@${localPart}:${matrixClient.getDomain()}`;
 		try {
+			e.preventDefault();
+			const ensName = await provider.resolveName(friend);
+			const localPart = ensName?.toLowerCase() ?? friend;
+			const userId = `@${localPart}:${matrixClient.getDomain()}`;
 			const randomName = uuid();
 			matrixClient
 				.createRoom({

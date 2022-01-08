@@ -20,7 +20,7 @@ export default function UserMenu({ address, onLogout }) {
 			>
 				<div
 					className={classnames(
-						'flex flex-row my-2.5 items-center space-x-3',
+						'flex flex-row items-center space-x-3',
 						'text-light-fg dark:text-dark-fg'
 					)}
 				>
@@ -29,6 +29,7 @@ export default function UserMenu({ address, onLogout }) {
 						<p className={classnames('text-md font-medium')}>{name}</p>
 						<p
 							className={classnames(
+								'pt-0.5',
 								'text-xs truncate text-left font-normal',
 								'text-light-fg-subtle dark:text-dark-fg-subtle'
 							)}

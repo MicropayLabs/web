@@ -1,8 +1,10 @@
 import { parseMatrixRoom, useMatrixClient } from '@lib/matrix';
 import classnames from 'classnames';
+import { useState } from 'react';
 
 export default function ChatHeader({ roomId, name, selfMembership }) {
 	const matrixClient = useMatrixClient();
+	const [didJoinRoom, setDidJoinRoom] = useState(false);
 	return (
 		<header
 			className={classnames(
@@ -20,7 +22,7 @@ export default function ChatHeader({ roomId, name, selfMembership }) {
 				{parseMatrixRoom(name)}
 			</div>
 			<span className="flex-1" />
-			{selfMembership === 'invite' && (
+			{didJoinRoom || selfMembership === 'invite' && (
 				<div className="flex flex-col justify-center mx-auto">
 					<button
 						className={classnames(
@@ -32,7 +34,7 @@ export default function ChatHeader({ roomId, name, selfMembership }) {
 							'shadow-sm shadow-light-shadow-sm dark:shadow-dark-shadow-sm',
 							'hover:shadow-md hover:shadow-light-shadow-md dark:hover:shadow-dark-shadow-md'
 						)}
-						onClick={() => matrixClient.joinRoom(roomId)}
+						onClick={() => matrixClient.joinRoom(roomId).then(() => setDidJoinRoom(true))}
 					>
 						{'Join Room'}
 					</button>
