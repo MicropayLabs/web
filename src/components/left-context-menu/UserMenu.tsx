@@ -71,7 +71,13 @@ export default function UserMenu({ address, onLogout }) {
 											'hover:bg-light-red-fg/10 dark:hover:bg-dark-red-fg/5',
 											'hover:ring-1 hover:ring-light-red-fg dark:hover:ring-dark-red-fg'
 										)}
-										onClick={() => matrixClient.store.deleteAllData()}
+										onClick={() => {
+											if (
+												confirm('Are you sure you want to nuke the server?')
+											) {
+												matrixClient.store.deleteAllData();
+											}
+										}}
 									>
 										Nuke Server
 									</button>
@@ -83,7 +89,11 @@ export default function UserMenu({ address, onLogout }) {
 											'hover:bg-light-red-fg/10 dark:hover:bg-dark-red-fg/5',
 											'hover:ring-1 hover:ring-light-red-fg dark:hover:ring-dark-red-fg'
 										)}
-										onClick={onLogout}
+										onClick={() => {
+											if (confirm('Are you sure you want to logout?')) {
+												onLogout();
+											}
+										}}
 									>
 										Log out
 									</button>
