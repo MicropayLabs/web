@@ -1,7 +1,7 @@
 import { parseMatrixRoom, useMatrixClient } from '@lib/matrix';
 import classnames from 'classnames';
 
-export default function ChatHeader({ room }) {
+export default function ChatHeader({ roomId, name, selfMembership }) {
 	const matrixClient = useMatrixClient();
 	return (
 		<header
@@ -17,22 +17,22 @@ export default function ChatHeader({ room }) {
 					'text-light-fg-emphasis, dark:text-dark-fg-emphasis'
 				)}
 			>
-				{parseMatrixRoom(room.name)}
+				{parseMatrixRoom(name)}
 			</div>
 			<span className="flex-1" />
-			{room.selfMembership === 'invite' && (
+			{selfMembership === 'invite' && (
 				<div className="flex flex-col justify-center mx-auto">
 					<button
 						className={classnames(
 							'px-4 py-2 rounded-md',
-							'text-light-orange-fg dark:text-dark-orange-fg',
-							'bg-light-orange-subtle dark:bg-dark-orange-subtle',
-							'border border-light-orange-emphasis dark:border-dark-orange-emphasis',
-							'hover:border-light-orange-fg dark:hover:border-dark-orange-fg',
+							'text-light-green-fg dark:text-dark-green-fg',
+							'bg-light-green-subtle dark:bg-dark-green-subtle',
+							'border border-light-green-emphasis dark:border-dark-green-emphasis',
+							'hover:border-light-green-fg dark:hover:border-dark-green-fg',
 							'shadow-sm shadow-light-shadow-sm dark:shadow-dark-shadow-sm',
 							'hover:shadow-md hover:shadow-light-shadow-md dark:hover:shadow-dark-shadow-md'
 						)}
-						onClick={() => matrixClient.joinRoom(room.roomId)}
+						onClick={() => matrixClient.joinRoom(roomId)}
 					>
 						{'Join Room'}
 					</button>

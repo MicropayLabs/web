@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Message from './Message';
+import Message from '../message';
 import { useMatrixClient } from '@lib/matrix';
 import ChatFooter from './ChatFooter';
 import ChatHeader from './ChatHeader';
@@ -61,29 +61,33 @@ export default function ChatWindow() {
 				'text-light-fg dark:text-dark-fg'
 			)}
 		>
-			<ChatHeader room={room} />
-				<article
-					className={classnames(
-						'mr-0.5 flex-1 flex flex-col-reverse',
-						'scrollbar-thin',
-						'scrollbar-thumb-canvas-overlay scrollbar-thumb-rounded-full',
-						'scrollbar-track-transparent'
-					)}
-				>
-					{messages
-						.filter((event) => event.type === 'm.room.message')
-						.map((msg, i, messages) => (
-							<Message
-								key={`${msg.event_id}-${i}`}
-								sender={msg.sender}
-								prevSender={i > 0 ? messages[i - 1].sender : undefined}
-								content={msg.content}
-								isLastMessage={i === messages.length - 1}
-								timestamp={msg.origin_server_ts}
-							/>
-						))
-						.reverse()}
-				</article>
+			<ChatHeader {...room} />
+			<article
+				className={classnames(
+					'mr-0.5 flex-1 flex flex-col-reverse',
+					'scrollbar-thin',
+					'scrollbar-thumb-canvas-overlay scrollbar-thumb-rounded-full',
+					'scrollbar-track-transparent'
+				)}
+			>
+				{messages
+					.filter(
+						(event) =>
+							event.type === 'm.room.message' || event.type === 'm.room.member'
+					)
+					.map((msg, i, messages) => (
+						<Message
+							key={`${msg.event_id}-${i}`}
+							sender={msg.sender}
+							type={msg.type}
+							prev={i > 0 ? messages[i - 1] : undefined}
+							content={msg.content}
+							isLastMessage={i === messages.length - 1}
+							timestamp={msg.origin_server_ts}
+						/>
+					))
+					.reverse()}
+			</article>
 			<ChatFooter />
 		</section>
 	) : (

@@ -8,13 +8,17 @@ import TimeAgo from 'react-timeago';
 
 export default function Message({
 	sender,
-	prevSender,
+	prev,
 	content,
 	isLastMessage,
 	timestamp,
 }) {
 	const userAddress = parseMatrixUser(sender);
 	const name = useENS(userAddress);
+	const withSenderIcon =
+		prev?.sender !== sender ||
+		prev?.content?.msgtype !== 'm.text' ||
+		prev.timestamp + 600000 < timestamp;
 
 	return (
 		<div
@@ -22,10 +26,10 @@ export default function Message({
 				'group flex flex-row w-full py-0.5',
 				'hover:bg-light-canvas-subtle dark:hover:bg-dark-canvas-inset/30',
 				'text-light-fg dark:text-dark-fg',
-				prevSender !== sender && 'mt-4'
+				withSenderIcon && 'mt-4'
 			)}
 		>
-			{prevSender !== sender ? (
+			{withSenderIcon ? (
 				<div className="flex flex-col justify-start">
 					<Jazzicon
 						className="w-10 h-10 mx-5 mt-2 opacity-75"
@@ -48,7 +52,7 @@ export default function Message({
 				</div>
 			)}
 			<div className="flex-1 flex flex-col">
-				{prevSender !== sender && (
+				{withSenderIcon && (
 					<div className="flex flex-row gap-2 my-1 items-baseline">
 						<span className="text-md font-bold text-light-fg dark:text-dark-fg/90">
 							{name}
