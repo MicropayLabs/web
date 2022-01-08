@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { EmojiHappyIcon, FireIcon, PaperClipIcon, PlusCircleIcon } from '@heroicons/react/outline';
+import {
+	EmojiHappyIcon,
+	FireIcon,
+	PaperClipIcon,
+	PlusCircleIcon,
+} from '@heroicons/react/outline';
 import { useMatrixClient } from '@lib/matrix';
 import classnames from 'classnames';
 
@@ -28,7 +33,7 @@ export default function ChatFooter() {
 			<div
 				className={classnames(
 					'flex flex-row gap-4 p-4 rounded-lg',
-					'bg-light-canvas-inset dark:bg-dark-canvas-subtle'
+					'bg-light-canvas-inset dark:bg-dark-canvas'
 				)}
 			>
 				<PlusCircleIcon
@@ -43,7 +48,7 @@ export default function ChatFooter() {
 						'flex-1 focus:outline-none',
 						'text-light-fg dark:text-dark-fg',
 						'placeholder-light-fg-subtle dark:placeholder-dark-fg-subtle',
-						'bg-light-canvas-inset dark:bg-dark-canvas-subtle'
+						'bg-light-canvas-inset dark:bg-dark-canvas'
 					)}
 					type="text"
 					placeholder="Type a message..."

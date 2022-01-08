@@ -1,26 +1,37 @@
-import React, { useState } from 'react';
+import React, { FormEventHandler, useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import Modal from '../modal/Modal';
 import classnames from 'classnames';
 import { useMatrixClient } from '@lib/matrix';
 import { Visibility } from 'matrix-js-sdk/lib/@types/partials';
+import { ethers } from 'ethers';
+import { shortenAddress } from '@lib/eth';
+import { v4 as uuid } from 'uuid';
 
 export default function DirectMessageModal({ isOpen, onClose }) {
-	const [roomName, setRoomName] = useState('');
+	const provider = new ethers.providers.Web3Provider((window as any).ethereum);
+	const [friend, setFriend] = useState('');
 	const matrixClient = useMatrixClient();
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
+	const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
 		try {
-			const { room_id } = await matrixClient.createRoom({
-				room_alias_name: roomName,
-				visibility: Visibility.Private, // or Visibility.Public
-				invite: [], // a list of userIDs to invite
-				name: roomName,
-				topic: 'Direct Message',
-			});
-			console.log('Created room:', room_id);
-			onClose();
+			e.preventDefault();
+			const ensName = await provider.resolveName(friend);
+			const localPart = ensName?.toLowerCase() ?? friend;
+			const userId = `@${localPart}:${matrixClient.getDomain()}`;
+			const randomName = uuid();
+			matrixClient
+				.createRoom({
+					room_alias_name: randomName,
+					name: randomName,
+					visibility: Visibility.Private, // or Visibility.Public
+					invite: [userId], // a list of userIDs to invite
+					topic: 'Direct Message',
+				})
+				.then(({ room_id }) => {
+					onClose();
+					matrixClient.joinRoom(room_id);
+				});
 		} catch (err) {
 			console.log(err);
 			alert(err.message);
@@ -31,34 +42,40 @@ export default function DirectMessageModal({ isOpen, onClose }) {
 		<Modal isOpen={isOpen} onClose={onClose}>
 			<Dialog.Title
 				as="h1"
-				className={classnames('text-xl font-medium leading-6', 'text-light-fg dark:text-dark-fg')}
+				className={classnames(
+					'text-xl font-medium leading-6',
+					'text-light-fg dark:text-dark-fg'
+				)}
 			>
-				Create a Room
+				Send a DM
 			</Dialog.Title>
 			<div className="mt-2">
 				<p
-					className={classnames('text-sm', 'text-light-fg-subtle dark:text-dark-neutral-emphasis')}
+					className={classnames(
+						'text-sm',
+						'text-light-fg-subtle dark:text-dark-neutral-emphasis'
+					)}
 				>
-					Create a new room to start chatting with your friends.
+					Add your friends by their public address or ENS username.
 				</p>
 			</div>
 			<form className="mt-5 sm:flex sm:items-center" onSubmit={handleSubmit}>
 				<div className="w-full sm:max-w-xs">
 					<label htmlFor="room" className="sr-only">
-						Room Name
+						Friend's Name
 					</label>
 					<input
 						name="room"
 						id="room"
-						value={roomName}
-						onChange={(e) => setRoomName(e.target.value)}
+						value={friend}
+						onChange={(e) => setFriend(e.target.value)}
 						className={classnames(
 							'px-4 py-2 w-full rounded-md text-sm outline-none',
 							'text-light-fg dark:text-dark-fg',
 							'placeholder-light-fg-subtle dark:placeholder-dark-fg-subtle',
 							'bg-light-canvas dark:bg-dark-canvas'
 						)}
-						placeholder="My Room"
+						placeholder="vitalik.eth"
 					/>
 				</div>
 				<button
