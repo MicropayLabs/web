@@ -4,6 +4,7 @@ import LeftContextMenu from '@components/left-context-menu/LeftContextMenu';
 import ChatWindow from '@components/chat-window/ChatWindow';
 import { TokenPayload } from '../../api/auth';
 import { useMatrixClient, initMatrixClient } from '@lib/matrix';
+import RightContextMenu from '@components/right-context-menu/RightContextMenu';
 
 export default function Home() {
 	const LOCAL_STORAGE_KEY = 'loginToken';
@@ -35,6 +36,7 @@ export default function Home() {
 						onLogout={handleLoggedOut}
 					/>
 					<ChatWindow />
+					<RightContextMenu />
 				</>
 			)}
 		</div>

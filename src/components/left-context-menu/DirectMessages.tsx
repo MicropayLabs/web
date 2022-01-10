@@ -71,12 +71,12 @@ export default function DirectMessages(): JSX.Element {
 								'text-light-fg-muted dark:text-dark-fg-muted'
 							)}
 							onClick={() => {
-								matrixClient.leave(room.roomId);
-								if (
-									matrixClient.getRoom(room.roomId).getJoinedMemberCount() === 0
-								) {
-									matrixClient.store.removeRoom(room.roomId);
+								const id = room.roomId;
+								matrixClient.leave(id);
+								if (matrixClient.getRoom(id).getJoinedMemberCount() === 0) {
+									matrixClient.store.removeRoom(id);
 								}
+								router.push('/channels/@me');
 							}}
 						>
 							-
