@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import Presence from './Presence';
 
 export default function RightContextMenu() {
 	return (
@@ -9,15 +10,7 @@ export default function RightContextMenu() {
 				'bg-light-canvas-inset dark:bg-dark-canvas-inset'
 			)}
 		>
-			<span
-				className={classnames(
-					'flex flex-row items-center justify-between mt-4',
-					'text-light-fg-muted dark:text-dark-fg-muted',
-					'uppercase'
-				)}
-			>
-				Friend Activity
-			</span>
+			<Presence />
 			<div className="flex-1" />
 		</div>
 	);
