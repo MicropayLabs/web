@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import classnames from 'classnames';
-import { useMatrixClient } from '@lib/matrix';
+import { parseMatrixRoom, useMatrixClient } from '@lib/matrix';
 import { Room } from 'matrix-js-sdk';
+import { useRouter } from 'next/router';
 
 export default function DirectMessages(): JSX.Element {
 	const [rooms, setRooms] = useState<Room[]>([]);
 	const matrixClient = useMatrixClient();
+	const router = useRouter();
 
 	useEffect(() => {
 		if (matrixClient) {
@@ -52,10 +54,15 @@ export default function DirectMessages(): JSX.Element {
 						key={room.roomId}
 						className={classnames(
 							'flex flex-row items-center justify-between text-md',
-							'text-light-fg dark:text-dark-fg'
+							'text-light-fg dark:text-dark-fg',
+							'cursor-pointer'
 						)}
 					>
-						<span>
+						<span
+							onClick={() =>
+								router.push(`/channels/@me/${parseMatrixRoom(room.roomId)}`)
+							}
+						>
 							{room && room.name ? room.name.substring(0, 18) : 'Room Name'}
 						</span>
 						<button
@@ -64,12 +71,12 @@ export default function DirectMessages(): JSX.Element {
 								'text-light-fg-muted dark:text-dark-fg-muted'
 							)}
 							onClick={() => {
-								matrixClient.leave(room.roomId);
-								if (
-									matrixClient.getRoom(room.roomId).getJoinedMemberCount() === 0
-								) {
-									matrixClient.store.removeRoom(room.roomId);
+								const id = room.roomId;
+								matrixClient.leave(id);
+								if (matrixClient.getRoom(id).getJoinedMemberCount() === 0) {
+									matrixClient.store.removeRoom(id);
 								}
+								router.push('/channels/@me');
 							}}
 						>
 							-
