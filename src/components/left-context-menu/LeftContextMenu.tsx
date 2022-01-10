@@ -8,7 +8,7 @@ export default function LeftContextMenu({ address, onLogout }) {
 		<div
 			className={classnames(
 				'flex flex-col py-3 pl-4 pr-2 gap-3 w-64 h-full',
-				'bg-light-canvas-inset dark:bg-dark-canvas'
+				'bg-light-canvas-inset dark:bg-dark-canvas-inset'
 			)}
 		>
 			<DirectMessages />

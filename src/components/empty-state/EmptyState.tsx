@@ -17,7 +17,7 @@ export default function EmptyState() {
 
 	return (
 		<>
-			<div className="flex flex-col w-full h-screen gap-3 justify-center mx-auto text-center">
+			<div className="flex flex-col w-full h-screen gap-3 justify-center mx-auto text-center dark:bg-dark-canvas-inset">
 				<h1 className="text-3xl text-light-fg dark:text-dark-fg">
 					Welcome to Micropay
 				</h1>

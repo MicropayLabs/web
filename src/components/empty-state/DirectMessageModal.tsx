@@ -5,7 +5,6 @@ import classnames from 'classnames';
 import { parseMatrixRoom, useMatrixClient } from '@lib/matrix';
 import { Visibility } from 'matrix-js-sdk/lib/@types/partials';
 import { ethers } from 'ethers';
-import { shortenAddress } from '@lib/eth';
 import { v4 as uuid } from 'uuid';
 import { useRouter } from 'next/router';
 
