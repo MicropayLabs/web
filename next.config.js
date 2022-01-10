@@ -12,4 +12,13 @@ module.exports = {
 			},
 		];
 	},
+	async redirects() {
+		return [
+			{
+				source: '/channels',
+				destination: '/channels/@me',
+				permanent: false,
+			},
+		];
+	},
 };

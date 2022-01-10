@@ -54,43 +54,46 @@ export default function ChatWindow() {
 		};
 	}, [matrixClient]);
 
-	return room ? (
+	return (
 		<section
 			className={classnames(
 				'flex flex-col w-full h-screen',
 				'text-light-fg dark:text-dark-fg'
 			)}
 		>
-			<ChatHeader {...room} />
-			<article
-				className={classnames(
-					'mr-0.5 flex-1 flex flex-col-reverse',
-					'scrollbar-thin',
-					'scrollbar-thumb-canvas-overlay scrollbar-thumb-rounded-full',
-					'scrollbar-track-transparent'
-				)}
-			>
-				{messages
-					.filter(
-						(event) =>
-							event.type === 'm.room.message' || event.type === 'm.room.member'
-					)
-					.map((msg, i, messages) => (
-						<Message
-							key={`${msg.event_id}-${i}`}
-							sender={msg.sender}
-							type={msg.type}
-							prev={i > 0 ? messages[i - 1] : undefined}
-							content={msg.content}
-							isLastMessage={i === messages.length - 1}
-							timestamp={msg.origin_server_ts}
-						/>
-					))
-					.reverse()}
-			</article>
-			<ChatFooter />
+			{room && (
+				<>
+					<ChatHeader {...room} />
+					<article
+						className={classnames(
+							'mr-0.5 flex-1 flex flex-col-reverse',
+							'scrollbar-thin',
+							'scrollbar-thumb-canvas-overlay scrollbar-thumb-rounded-full',
+							'scrollbar-track-transparent'
+						)}
+					>
+						{messages
+							.filter(
+								(event) =>
+									event.type === 'm.room.message' ||
+									event.type === 'm.room.member'
+							)
+							.map((msg, i, messages) => (
+								<Message
+									key={`${msg.event_id}-${i}`}
+									sender={msg.sender}
+									type={msg.type}
+									prev={i > 0 ? messages[i - 1] : undefined}
+									content={msg.content}
+									isLastMessage={i === messages.length - 1}
+									timestamp={msg.origin_server_ts}
+								/>
+							))
+							.reverse()}
+					</article>
+					<ChatFooter />
+				</>
+			)}
 		</section>
-	) : (
-		<EmptyState />
 	);
 }

@@ -22,7 +22,7 @@ export default function EmptyState() {
 					Welcome to Micropay
 				</h1>
 				<p className="text-md text-light-fg-muted dark:text-dark-fg-muted">
-					Making a DAO should be as easy as creating a group chat.
+					Scalable infrastructure for decentralized organizations.
 				</p>
 				<div className="mt-8 flex flex-row gap-8 justify-center">
 					<button

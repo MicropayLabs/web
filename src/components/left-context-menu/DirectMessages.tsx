@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import classnames from 'classnames';
-import { useMatrixClient } from '@lib/matrix';
+import { parseMatrixRoom, useMatrixClient } from '@lib/matrix';
 import { Room } from 'matrix-js-sdk';
+import { useRouter } from 'next/router';
 
 export default function DirectMessages(): JSX.Element {
 	const [rooms, setRooms] = useState<Room[]>([]);
 	const matrixClient = useMatrixClient();
+	const router = useRouter();
 
 	useEffect(() => {
 		if (matrixClient) {
@@ -50,9 +52,13 @@ export default function DirectMessages(): JSX.Element {
 				{rooms.map((room) => (
 					<div
 						key={room.roomId}
+						onClick={() =>
+							router.push(`/channels/@me/${parseMatrixRoom(room.roomId)}`)
+						}
 						className={classnames(
 							'flex flex-row items-center justify-between text-md',
-							'text-light-fg dark:text-dark-fg'
+							'text-light-fg dark:text-dark-fg',
+							'cursor-pointer'
 						)}
 					>
 						<span>

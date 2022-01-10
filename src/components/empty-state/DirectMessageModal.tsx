@@ -2,16 +2,18 @@ import React, { FormEventHandler, useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import Modal from '../modal/Modal';
 import classnames from 'classnames';
-import { useMatrixClient } from '@lib/matrix';
+import { parseMatrixRoom, useMatrixClient } from '@lib/matrix';
 import { Visibility } from 'matrix-js-sdk/lib/@types/partials';
 import { ethers } from 'ethers';
 import { shortenAddress } from '@lib/eth';
 import { v4 as uuid } from 'uuid';
+import { useRouter } from 'next/router';
 
 export default function DirectMessageModal({ isOpen, onClose }) {
 	const provider = new ethers.providers.Web3Provider((window as any).ethereum);
 	const [friend, setFriend] = useState('');
 	const matrixClient = useMatrixClient();
+	const router = useRouter();
 
 	const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
 		try {
@@ -31,6 +33,8 @@ export default function DirectMessageModal({ isOpen, onClose }) {
 				.then(({ room_id }) => {
 					onClose();
 					matrixClient.joinRoom(room_id);
+					console.log(room_id);
+					router.push('/channels/@me/' + parseMatrixRoom(room_id));
 				});
 		} catch (err) {
 			console.log(err);
