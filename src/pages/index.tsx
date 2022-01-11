@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Landing } from '@components/landing';
 import { useMatrixClient, initMatrixClient } from '@lib/matrix';
-import Router from 'next/router';
+import { useRouter } from 'next/router';
 
 export const LOCAL_STORAGE_KEY = 'loginToken';
 export default function Home() {
 	const matrixClient = useMatrixClient();
 	const [jwt, setJWT] = useState<string>();
+	const router = useRouter();
 
 	useEffect(() => {
 		console.log('matrixClient', matrixClient);
 		if (jwt && matrixClient) {
-			Router.push('/channels/@me');
+			router.push('/channels/@me');
 		}
 	}, [matrixClient]);
 
