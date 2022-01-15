@@ -31,18 +31,18 @@ class MyDocument extends Document {
 					<meta property="og:title" content="Micropay" />
 					<meta
 						property="og:description"
-						content="Micropay makes it easy to make a DAO on Ethereum."
+						content="Scalable infrastructure for decentralized communities."
 					/>
 					<meta property="og:image" content="/android-chrome-512x512.png" />
 					<meta name="twitter:card" content="/android-chrome-512x512.png" />
 					<meta name="twitter:title" content="Micropay" />
 					<meta
 						name="twitter:description"
-						content="Micropay makes it easy to make a DAO on Ethereum."
+						content="Scalable infrastructure for decentralized communities."
 					/>
 					<meta name="twitter:image" content="/android-chrome-192x192.png" />
 				</Head>
-				<body className="overflow-hidden">
+				<body id="root" className="overflow-hidden">
 					<Main />
 					<NextScript />
 				</body>

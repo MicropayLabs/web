@@ -1,5 +1,5 @@
 import sanitizeHtml from 'sanitize-html';
-import initMatrix from '../client/initMatrix';
+import initMatrix from '../matrix/initMatrix';
 
 const MAX_TAG_NESTING = 100;
 
