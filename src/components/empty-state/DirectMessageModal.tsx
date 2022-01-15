@@ -43,27 +43,25 @@ export default function DirectMessageModal({ isOpen, onClose }) {
 
 	return (
 		<Modal isOpen={isOpen} onClose={onClose}>
-			<Dialog.Title
-				as="h1"
-				className={classnames(
-					'text-xl font-medium leading-6',
-					'text-light-fg dark:text-dark-fg'
-				)}
-			>
-				Send a DM
-			</Dialog.Title>
-			<div className="mt-2">
+			<form className="flex flex-col items-start" onSubmit={handleSubmit}>
+				<Dialog.Title
+					as="h1"
+					className={classnames(
+						'text-xl font-medium leading-6',
+						'text-light-fg dark:text-dark-fg'
+					)}
+				>
+					Send a DM
+				</Dialog.Title>
 				<p
 					className={classnames(
-						'text-sm',
+						'text-sm mt-2 mb-4',
 						'text-light-fg-subtle dark:text-dark-neutral-emphasis'
 					)}
 				>
 					Add your friends by their public address or ENS username.
 				</p>
-			</div>
-			<form className="mt-5 sm:flex sm:items-center" onSubmit={handleSubmit}>
-				<div className="w-full sm:max-w-xs">
+				<div className="flex flex-row w-full">
 					<label htmlFor="room" className="sr-only">
 						Friend's Name
 					</label>
@@ -73,28 +71,36 @@ export default function DirectMessageModal({ isOpen, onClose }) {
 						value={friend}
 						onChange={(e) => setFriend(e.target.value)}
 						className={classnames(
-							'px-4 py-2 w-full rounded-md text-sm outline-none',
+							'flex-1 px-4 py-2 rounded-md text-sm outline-none',
 							'text-light-fg dark:text-dark-fg',
 							'placeholder-light-fg-subtle dark:placeholder-dark-fg-subtle',
-							'bg-light-canvas dark:bg-dark-canvas'
+							'bg-light-canvas-subtle dark:bg-dark-canvas'
 						)}
 						placeholder="vitalik.eth"
 					/>
+					<button
+						type="submit"
+						className={classnames(
+							'mt-3 w-full inline-flex items-center justify-center px-4 py-2',
+							'shadow-sm shadow-light-shadow-sm dark:shadow-dark-shadow-sm',
+							'text-light-fg-emphasis dark:text-dark-fg',
+							'font-medium rounded-md',
+							'bg-light-green-emphasis dark:bg-dark-green-fg/60',
+							'hover:bg-light-green-fg dark:hover:bg-dark-green-fg/75',
+							'sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm'
+						)}
+					>
+						Send
+					</button>
 				</div>
-				<button
-					type="submit"
+				<p
 					className={classnames(
-						'mt-3 w-full inline-flex items-center justify-center px-4 py-2',
-						'shadow-sm shadow-light-shadow-sm dark:shadow-dark-shadow-sm',
-						'text-light-fg dark:text-dark-fg',
-						'font-medium rounded-md',
-						'bg-light-green-fg dark:bg-dark-green-fg/60',
-						'hover:bg-light-green-fg dark:hover:bg-dark-green-fg/75',
-						'sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm'
+						'text-sm mt-2 mb-4',
+						'text-light-fg-subtle dark:text-dark-neutral-emphasis'
 					)}
 				>
-					Send
-				</button>
+					Suggestions
+				</p>
 			</form>
 		</Modal>
 	);

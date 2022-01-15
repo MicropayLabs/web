@@ -15,7 +15,7 @@ export default function UserMenu({ address, onLogout }) {
 				className={classnames(
 					'inline-flex justify-left mb-2 px-3 w-full rounded-lg outline-none',
 					'text-sm font-medium',
-					'hover:bg-light-canvas dark:hover:bg-dark-canvas'
+					'hover:bg-light-neutral-muted dark:hover:bg-dark-canvas'
 				)}
 			>
 				<div
