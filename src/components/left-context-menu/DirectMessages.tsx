@@ -42,8 +42,9 @@ export default function DirectMessages(): JSX.Element {
 				<span
 					className={classnames(
 						'text-light-fg-muted dark:text-dark-fg-muted',
-						'uppercase'
+						'uppercase cursor-pointer'
 					)}
+					onClick={() => router.push('/channels/@me')}
 				>
 					Direct Messages
 				</span>

@@ -5,11 +5,15 @@ import classnames from 'classnames';
 export default function Modal({ isOpen, onClose, children }) {
 	return (
 		<Transition appear show={isOpen} as={Fragment}>
-			<Dialog as="div" className="fixed inset-0 z-10 overflow-y-auto" onClose={onClose}>
+			<Dialog
+				as="div"
+				className="fixed inset-0 z-10 overflow-y-auto"
+				onClose={onClose}
+			>
 				<div
 					className={classnames(
 						'min-h-screen px-4 text-center',
-						'bg-light-canvas/50 dark:bg-dark-canvas-inset/80'
+						'bg-light-fg-muted/50 dark:bg-dark-canvas-inset/80'
 					)}
 				>
 					<Transition.Child
@@ -25,7 +29,10 @@ export default function Modal({ isOpen, onClose, children }) {
 					</Transition.Child>
 
 					{/* This element is to trick the browser into centering the modal contents. */}
-					<span className="inline-block h-screen align-middle" aria-hidden="true">
+					<span
+						className="inline-block h-screen align-middle"
+						aria-hidden="true"
+					>
 						&#8203;
 					</span>
 					<Transition.Child

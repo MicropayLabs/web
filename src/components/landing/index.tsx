@@ -23,7 +23,9 @@ export const Landing = ({ onLoggedIn }): JSX.Element => {
 				window.alert('ur ngmi - go install MetaMask you heathen');
 				return;
 			}
-			const provider = new ethers.providers.Web3Provider((window as any).ethereum);
+			const provider = new ethers.providers.Web3Provider(
+				(window as any).ethereum
+			);
 			const signer = provider.getSigner();
 			const publicAddress = await signer.getAddress();
 

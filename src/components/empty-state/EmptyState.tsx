@@ -28,11 +28,11 @@ export default function EmptyState() {
 					<button
 						className={classnames(
 							'px-4 py-2 w-36 h-36 rounded-lg justify-center',
-							'text-light-green-fg dark:text-dark-green-fg',
-							'bg-light-green-subtle/10 dark:bg-dark-green-subtle/10',
-							'hover:bg-light-green-subtle/20 dark:hover:bg-dark-green-subtle/20',
-							'border border-light-green-emphasis dark:border-dark-green-emphasis',
-							'hover:border-light-green-fg dark:hover:border-dark-green-fg',
+							'text-light-purple-fg dark:text-dark-purple-fg',
+							'bg-light-purple-subtle dark:bg-dark-purple-subtle/10',
+							'hover:bg-light-purple-muted dark:hover:bg-dark-purple-subtle/20',
+							'border border-light-purple-emphasis dark:border-dark-purple-emphasis',
+							'hover:border-light-purple-fg dark:hover:border-dark-purple-fg',
 							'shadow-md shadow-light-shadow-md dark:shadow-dark-shadow-md',
 							'hover:shadow-lg hover:shadow-light-shadow-lg dark:hover:shadow-dark-shadow-lg',
 							'outline-none'
@@ -45,11 +45,11 @@ export default function EmptyState() {
 					<button
 						className={classnames(
 							'px-4 py-2 rounded-lg w-36 h-36',
-							'text-light-green-fg dark:text-dark-green-fg',
-							'bg-light-green-subtle/10 dark:bg-dark-green-subtle/10',
-							'border border-light-green-emphasis dark:border-dark-green-emphasis',
-							'hover:bg-light-green-subtle/20 dark:hover:bg-dark-green-subtle/20',
-							'hover:border-light-green-fg dark:hover:border-dark-green-fg',
+							'text-light-purple-fg dark:text-dark-purple-fg',
+							'bg-light-purple-subtle dark:bg-dark-purple-subtle/10',
+							'border border-light-purple-emphasis dark:border-dark-purple-emphasis',
+							'hover:bg-light-purple-muted dark:hover:bg-dark-purple-subtle/20',
+							'hover:border-light-purple-fg dark:hover:border-dark-purple-fg',
 							'shadow-md shadow-light-shadow-md dark:shadow-dark-shadow-md',
 							'hover:shadow-lg hover:shadow-light-shadow-lg dark:hover:shadow-dark-shadow-lg'
 						)}
@@ -61,11 +61,11 @@ export default function EmptyState() {
 					<button
 						className={classnames(
 							'px-4 py-2 rounded-lg w-36 h-36',
-							'text-light-green-fg dark:text-dark-green-fg',
-							'bg-light-green-subtle/10 dark:bg-dark-green-subtle/10',
-							'hover:bg-light-green-subtle/20 dark:hover:bg-dark-green-subtle/20',
-							'border border-light-green-emphasis dark:border-dark-green-emphasis',
-							'hover:border-light-green-fg dark:hover:border-dark-green-fg',
+							'text-light-purple-fg dark:text-dark-purple-fg',
+							'bg-light-purple-subtle dark:bg-dark-purple-subtle/10',
+							'hover:bg-light-purple-muted dark:hover:bg-dark-purple-subtle/20',
+							'border border-light-purple-emphasis dark:border-dark-purple-emphasis',
+							'hover:border-light-purple-fg dark:hover:border-dark-purple-fg',
 							'shadow-md shadow-light-shadow-md dark:shadow-dark-shadow-md',
 							'hover:shadow-lg hover:shadow-light-shadow-lg dark:hover:shadow-dark-shadow-lg'
 						)}
