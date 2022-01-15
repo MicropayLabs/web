@@ -8,7 +8,7 @@ class MyDocument extends Document {
 
 	render() {
 		return (
-			<Html className='bg-light-canvas dark:bg-dark-canvas-inset'>
+			<Html className="bg-light-canvas dark:bg-dark-canvas-inset">
 				<Head>
 					<link
 						rel="apple-touch-icon"
@@ -42,7 +42,7 @@ class MyDocument extends Document {
 					/>
 					<meta name="twitter:image" content="/android-chrome-192x192.png" />
 				</Head>
-				<body className="h-full overflow-hidden">
+				<body className="overflow-hidden">
 					<Main />
 					<NextScript />
 				</body>

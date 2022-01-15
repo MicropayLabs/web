@@ -11,7 +11,8 @@
 		"noEmit": true,
 		"paths": {
 			"@components/*": ["components/*"],
-			"@lib/*": ["lib/*"]
+			"@lib/*": ["lib/*"],
+			"@layouts/*": ["layouts/*"],
 		},
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
