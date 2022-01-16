@@ -11,7 +11,7 @@ import Button from '../../atoms/button/Button';
 import Input from '../../atoms/input/Input';
 import Spinner from '../../atoms/spinner/Spinner';
 
-import CirclePlusIC from '../../../public/res/ic/outlined/circle-plus.svg';
+const CirclePlusIC = '/res/ic/outlined/circle-plus.svg';
 
 import { useStore } from '../../hooks/useStore';
 

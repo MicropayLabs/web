@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 import Text from '../../atoms/text/Text';
 import RawIcon from '../../atoms/system-icons/RawIcon';
 
-import JoinArraowIC from '../../../public/res/ic/outlined/join-arrow.svg';
-import LeaveArraowIC from '../../../public/res/ic/outlined/leave-arrow.svg';
-import InviteArraowIC from '../../../public/res/ic/outlined/invite-arrow.svg';
-import InviteCancelArraowIC from '../../../public/res/ic/outlined/invite-cancel-arrow.svg';
-import UserIC from '../../../public/res/ic/outlined/user.svg';
+const JoinArraowIC = '/res/ic/outlined/join-arrow.svg';
+const LeaveArraowIC = '/res/ic/outlined/leave-arrow.svg';
+const InviteArraowIC = '/res/ic/outlined/invite-arrow.svg';
+const InviteCancelArraowIC = '/res/ic/outlined/invite-cancel-arrow.svg';
+const UserIC = '/res/ic/outlined/user.svg';
 
 function TimelineChange({ variant, content, time, onClick }) {
 	let iconSrc;

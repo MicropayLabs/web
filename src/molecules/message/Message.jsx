@@ -36,12 +36,12 @@ import ContextMenu, {
 } from '../../atoms/context-menu/ContextMenu';
 import * as Media from '../media/Media';
 
-import ReplyArrowIC from '../../../public/res/ic/outlined/reply-arrow.svg';
-import EmojiAddIC from '../../../public/res/ic/outlined/emoji-add.svg';
-import VerticalMenuIC from '../../../public/res/ic/outlined/vertical-menu.svg';
-import PencilIC from '../../../public/res/ic/outlined/pencil.svg';
-import TickMarkIC from '../../../public/res/ic/outlined/tick-mark.svg';
-import BinIC from '../../../public/res/ic/outlined/bin.svg';
+const ReplyArrowIC = '/res/ic/outlined/reply-arrow.svg';
+const EmojiAddIC = '/res/ic/outlined/emoji-add.svg';
+const VerticalMenuIC = '/res/ic/outlined/vertical-menu.svg';
+const PencilIC = '/res/ic/outlined/pencil.svg';
+const TickMarkIC = '/res/ic/outlined/tick-mark.svg';
+const BinIC = '/res/ic/outlined/bin.svg';
 
 function PlaceholderMessage() {
 	return (

@@ -16,7 +16,7 @@ import Button from '../../atoms/button/Button';
 import ScrollView from '../../atoms/scroll/ScrollView';
 import NotificationBadge from '../../atoms/badge/NotificationBadge';
 
-import ChevronRightIC from '../../../public/res/ic/outlined/chevron-right.svg';
+const ChevronRightIC = '/res/ic/outlined/chevron-right.svg';
 
 function DrawerBreadcrumb({ spaceId }) {
 	const [, forceUpdate] = useState({});

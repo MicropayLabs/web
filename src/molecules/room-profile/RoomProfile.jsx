@@ -15,7 +15,7 @@ import Input from '../../atoms/input/Input';
 import IconButton from '../../atoms/button/IconButton';
 import ImageUpload from '../image-upload/ImageUpload';
 
-import PencilIC from '../../../public/res/ic/outlined/pencil.svg';
+const PencilIC = '/res/ic/outlined/pencil.svg';
 
 import { useStore } from '../../hooks/useStore';
 import { useForceUpdate } from '../../hooks/useForceUpdate';

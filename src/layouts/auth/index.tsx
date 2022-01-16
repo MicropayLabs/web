@@ -8,8 +8,10 @@ import { ethers } from 'ethers';
 import { generateSignatureMessage } from '@lib/eth';
 import Web3 from 'web3';
 import Footer from './Footer';
+import Grid from './Grid';
 
 function Auth() {
+	const IS_TRON_THEMED = false;
 	const [loginToken, setLoginToken] = useState(undefined);
 	const [message, setMessage] = useState('Login with Metamask'); // Loading button state
 	const [isClickable, setIsClickable] = useState(true);
@@ -114,6 +116,7 @@ function Auth() {
 
 	return (
 		<main className="flex flex-col w-screen h-screen">
+			{IS_TRON_THEMED && <Grid />}
 			<div
 				className={classnames(
 					'max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8',

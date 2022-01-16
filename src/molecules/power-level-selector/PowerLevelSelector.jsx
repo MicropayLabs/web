@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import IconButton from '../../atoms/button/IconButton';
 import { MenuHeader, MenuItem } from '../../atoms/context-menu/ContextMenu';
 
-import CheckIC from '../../../public/res/ic/outlined/check.svg';
+const CheckIC = '/res/ic/outlined/check.svg';
 
 function PowerLevelSelector({ value, max, onSelect }) {
 	const handleSubmit = (e) => {

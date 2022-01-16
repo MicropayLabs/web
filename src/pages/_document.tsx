@@ -44,7 +44,7 @@ class MyDocument extends Document {
 				</Head>
 				<body
 					id="root"
-					className="overflow-hidden bg-light-canvas dark:bg-dark-canvas-inset"
+					className="h-screen overflow-hidden bg-light-canvas dark:bg-dark-canvas-inset"
 				>
 					<Main />
 					<NextScript />

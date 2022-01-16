@@ -11,7 +11,7 @@ import Header, { TitleWrapper } from '../../atoms/header/Header';
 import ScrollView from '../../atoms/scroll/ScrollView';
 import RawModal from '../../atoms/modal/RawModal';
 
-import ChevronLeftIC from '../../../public/res/ic/outlined/chevron-left.svg';
+const ChevronLeftIC = '/res/ic/outlined/chevron-left.svg';
 
 function PWContentSelector({
 	selected,

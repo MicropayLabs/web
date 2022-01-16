@@ -10,7 +10,7 @@ import IconButton from '../../atoms/button/IconButton';
 import PeopleSelector from '../../molecules/people-selector/PeopleSelector';
 import Dialog from '../../molecules/dialog/Dialog';
 
-import CrossIC from '../../../public/res/ic/outlined/cross.svg';
+const CrossIC = '/res/ic/outlined/cross.svg';
 import { openProfileViewer } from '@lib/matrix/action/navigation';
 
 function ReadReceipts() {

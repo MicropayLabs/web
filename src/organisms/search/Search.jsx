@@ -15,14 +15,14 @@ import RawModal from '../../atoms/modal/RawModal';
 import ScrollView from '../../atoms/scroll/ScrollView';
 import RoomSelector from '../../molecules/room-selector/RoomSelector';
 
-import SearchIC from '../../../public/res/ic/outlined/search.svg';
-import HashIC from '../../../public/res/ic/outlined/hash.svg';
-import HashGlobeIC from '../../../public/res/ic/outlined/hash-globe.svg';
-import HashLockIC from '../../../public/res/ic/outlined/hash-lock.svg';
-import SpaceIC from '../../../public/res/ic/outlined/space.svg';
-import SpaceGlobeIC from '../../../public/res/ic/outlined/space-globe.svg';
-import SpaceLockIC from '../../../public/res/ic/outlined/space-lock.svg';
-import CrossIC from '../../../public/res/ic/outlined/cross.svg';
+const SearchIC = '/res/ic/outlined/search.svg';
+const HashIC = '/res/ic/outlined/hash.svg';
+const HashGlobeIC = '/res/ic/outlined/hash-globe.svg';
+const HashLockIC = '/res/ic/outlined/hash-lock.svg';
+const SpaceIC = '/res/ic/outlined/space.svg';
+const SpaceGlobeIC = '/res/ic/outlined/space-globe.svg';
+const SpaceLockIC = '/res/ic/outlined/space-lock.svg';
+const CrossIC = '/res/ic/outlined/cross.svg';
 
 function useVisiblityToggle(setResult) {
 	const [isOpen, setIsOpen] = useState(false);

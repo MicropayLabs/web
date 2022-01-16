@@ -9,7 +9,7 @@ import { openReadReceipts } from '@lib/matrix/action/navigation';
 
 import Text from '../../atoms/text/Text';
 import RawIcon from '../../atoms/system-icons/RawIcon';
-import TickMarkIC from '../../../public/res/ic/outlined/tick-mark.svg';
+const TickMarkIC = '/res/ic/outlined/tick-mark.svg';
 
 import { getUsersActionJsx } from '../../organisms/room/common';
 

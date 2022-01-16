@@ -20,15 +20,15 @@ import IconButton from '../../atoms/button/IconButton';
 import ScrollView from '../../atoms/scroll/ScrollView';
 import { MessageReply } from '../../molecules/message/Message';
 
-import CirclePlusIC from '../../../public/res/ic/outlined/circle-plus.svg';
-import EmojiIC from '../../../public/res/ic/outlined/emoji.svg';
-import SendIC from '../../../public/res/ic/outlined/send.svg';
-import ShieldIC from '../../../public/res/ic/outlined/shield.svg';
-import VLCIC from '../../../public/res/ic/outlined/vlc.svg';
-import VolumeFullIC from '../../../public/res/ic/outlined/volume-full.svg';
-import MarkdownIC from '../../../public/res/ic/outlined/markdown.svg';
-import FileIC from '../../../public/res/ic/outlined/file.svg';
-import CrossIC from '../../../public/res/ic/outlined/cross.svg';
+const CirclePlusIC = '/res/ic/outlined/circle-plus.svg';
+const EmojiIC = '/res/ic/outlined/emoji.svg';
+const SendIC = '/res/ic/outlined/send.svg';
+const ShieldIC = '/res/ic/outlined/shield.svg';
+const VLCIC = '/res/ic/outlined/vlc.svg';
+const VolumeFullIC = '/res/ic/outlined/volume-full.svg';
+const MarkdownIC = '/res/ic/outlined/markdown.svg';
+const FileIC = '/res/ic/outlined/file.svg';
+const CrossIC = '/res/ic/outlined/cross.svg';
 
 const CMD_REGEX = /(^\/|:|@)(\S*)$/;
 let isTyping = false;

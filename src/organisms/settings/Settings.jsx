@@ -28,12 +28,12 @@ import ExportE2ERoomKeys from '../../molecules/import-export-e2e-room-keys/Expor
 
 import ProfileEditor from '../profile-editor/ProfileEditor';
 
-import SettingsIC from '../../../public/res/ic/outlined/settings.svg';
-import SunIC from '../../../public/res/ic/outlined/sun.svg';
-import LockIC from '../../../public/res/ic/outlined/lock.svg';
-import InfoIC from '../../../public/res/ic/outlined/info.svg';
-import PowerIC from '../../../public/res/ic/outlined/power.svg';
-import CrossIC from '../../../public/res/ic/outlined/cross.svg';
+const SettingsIC = '/res/ic/outlined/settings.svg';
+const SunIC = '/res/ic/outlined/sun.svg';
+const LockIC = '/res/ic/outlined/lock.svg';
+const InfoIC = '/res/ic/outlined/info.svg';
+const PowerIC = '/res/ic/outlined/power.svg';
+const CrossIC = '/res/ic/outlined/cross.svg';
 
 import CinnySVG from '../../../public/res/svg/cinny.svg';
 

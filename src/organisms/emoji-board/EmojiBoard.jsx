@@ -19,15 +19,15 @@ import IconButton from '../../atoms/button/IconButton';
 import Input from '../../atoms/input/Input';
 import ScrollView from '../../atoms/scroll/ScrollView';
 
-import SearchIC from '../../../public/res/ic/outlined/search.svg';
-import EmojiIC from '../../../public/res/ic/outlined/emoji.svg';
-import DogIC from '../../../public/res/ic/outlined/dog.svg';
-import CupIC from '../../../public/res/ic/outlined/cup.svg';
-import BallIC from '../../../public/res/ic/outlined/ball.svg';
-import PhotoIC from '../../../public/res/ic/outlined/photo.svg';
-import BulbIC from '../../../public/res/ic/outlined/bulb.svg';
-import PeaceIC from '../../../public/res/ic/outlined/peace.svg';
-import FlagIC from '../../../public/res/ic/outlined/flag.svg';
+const SearchIC = '/res/ic/outlined/search.svg';
+const EmojiIC = '/res/ic/outlined/emoji.svg';
+const DogIC = '/res/ic/outlined/dog.svg';
+const CupIC = '/res/ic/outlined/cup.svg';
+const BallIC = '/res/ic/outlined/ball.svg';
+const PhotoIC = '/res/ic/outlined/photo.svg';
+const BulbIC = '/res/ic/outlined/bulb.svg';
+const PeaceIC = '/res/ic/outlined/peace.svg';
+const FlagIC = '/res/ic/outlined/flag.svg';
 
 const EmojiGroup = React.memo(({ name, groupEmojis }) => {
 	function getEmojiBoard() {

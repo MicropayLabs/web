@@ -10,9 +10,9 @@ import * as roomActions from '@lib/matrix/action/room';
 import { MenuHeader, MenuItem } from '../../atoms/context-menu/ContextMenu';
 import RoomNotification from '../room-notification/RoomNotification';
 
-import TickMarkIC from '../../../public/res/ic/outlined/tick-mark.svg';
-import AddUserIC from '../../../public/res/ic/outlined/add-user.svg';
-import LeaveArrowIC from '../../../public/res/ic/outlined/leave-arrow.svg';
+const TickMarkIC = '/res/ic/outlined/tick-mark.svg';
+const AddUserIC = '/res/ic/outlined/add-user.svg';
+const LeaveArrowIC = '/res/ic/outlined/leave-arrow.svg';
 
 function RoomOptions({ roomId, afterOptionSelect }) {
 	const mx = initMatrix.matrixClient;

@@ -3,15 +3,13 @@ import React from 'react';
 
 import Text from '../../atoms/text/Text';
 
-import CinnySvg from '../../../public/res/svg/cinny.svg';
-
 function Welcome() {
 	return (
 		<div className="app-welcome flex--center">
 			<div>
 				<img
 					className="app-welcome__logo noselect"
-					src={CinnySvg}
+					src={'/res/svg/cinny.svg'}
 					alt="Cinny logo"
 				/>
 				<Text
@@ -20,10 +18,10 @@ function Welcome() {
 					weight="medium"
 					primary
 				>
-					Welcome to Cinny
+					Welcome to Micropay
 				</Text>
 				<Text className="app-welcome__subheading" variant="s1">
-					Yet another matrix client
+					Scalable infrastructure for decentralized organizations
 				</Text>
 			</div>
 		</div>

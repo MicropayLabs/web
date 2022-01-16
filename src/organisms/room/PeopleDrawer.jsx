@@ -21,9 +21,9 @@ import Input from '../../atoms/input/Input';
 import SegmentedControl from '../../atoms/segmented-controls/SegmentedControls';
 import PeopleSelector from '../../molecules/people-selector/PeopleSelector';
 
-import AddUserIC from '../../../public/res/ic/outlined/add-user.svg';
-import SearchIC from '../../../public/res/ic/outlined/search.svg';
-import CrossIC from '../../../public/res/ic/outlined/cross.svg';
+const AddUserIC = '/res/ic/outlined/add-user.svg';
+const SearchIC = '/res/ic/outlined/search.svg';
+const CrossIC = '/res/ic/outlined/cross.svg';
 
 function AtoZ(m1, m2) {
 	const aName = m1.name;

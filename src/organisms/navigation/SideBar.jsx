@@ -16,10 +16,10 @@ import { abbreviateNumber } from '@lib/util/common';
 import ScrollView from '../../atoms/scroll/ScrollView';
 import SidebarAvatar from '../../molecules/sidebar-avatar/SidebarAvatar';
 
-import HomeIC from '../../../public/res/ic/outlined/home.svg';
-import UserIC from '../../../public/res/ic/outlined/user.svg';
-import SearchIC from '../../../public/res/ic/outlined/search.svg';
-import InviteIC from '../../../public/res/ic/outlined/invite.svg';
+const HomeIC = '/res/ic/outlined/home.svg';
+const UserIC = '/res/ic/outlined/user.svg';
+const SearchIC = '/res/ic/outlined/search.svg';
+const InviteIC = '/res/ic/outlined/invite.svg';
 
 function ProfileAvatarMenu() {
 	const mx = initMatrix.matrixClient;

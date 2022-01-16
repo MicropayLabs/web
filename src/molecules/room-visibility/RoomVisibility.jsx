@@ -8,12 +8,12 @@ import Text from '../../atoms/text/Text';
 import RadioButton from '../../atoms/button/RadioButton';
 import { MenuItem } from '../../atoms/context-menu/ContextMenu';
 
-import HashIC from '../../../public/res/ic/outlined/hash.svg';
-import HashLockIC from '../../../public/res/ic/outlined/hash-lock.svg';
-import HashGlobeIC from '../../../public/res/ic/outlined/hash-globe.svg';
-import SpaceIC from '../../../public/res/ic/outlined/space.svg';
-import SpaceLockIC from '../../../public/res/ic/outlined/space-lock.svg';
-import SpaceGlobeIC from '../../../public/res/ic/outlined/space-globe.svg';
+const HashIC = '/res/ic/outlined/hash.svg';
+const HashLockIC = '/res/ic/outlined/hash-lock.svg';
+const HashGlobeIC = '/res/ic/outlined/hash-globe.svg';
+const SpaceIC = '/res/ic/outlined/space.svg';
+const SpaceLockIC = '/res/ic/outlined/space-lock.svg';
+const SpaceGlobeIC = '/res/ic/outlined/space-globe.svg';
 
 const visibility = {
 	INVITE: 'invite',

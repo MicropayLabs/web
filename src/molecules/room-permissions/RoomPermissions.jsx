@@ -13,7 +13,7 @@ import { MenuHeader } from '../../atoms/context-menu/ContextMenu';
 import PowerLevelSelector from '../power-level-selector/PowerLevelSelector';
 import SettingTile from '../setting-tile/SettingTile';
 
-import ChevronBottomIC from '../../../public/res/ic/outlined/chevron-bottom.svg';
+const ChevronBottomIC = '/res/ic/outlined/chevron-bottom.svg';
 
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 

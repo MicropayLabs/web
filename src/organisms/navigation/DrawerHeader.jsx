@@ -23,11 +23,11 @@ import ContextMenu, {
 	MenuHeader,
 } from '../../atoms/context-menu/ContextMenu';
 
-import PlusIC from '../../../public/res/ic/outlined/plus.svg';
-import HashPlusIC from '../../../public/res/ic/outlined/hash-plus.svg';
-import HashSearchIC from '../../../public/res/ic/outlined/hash-search.svg';
-import PinIC from '../../../public/res/ic/outlined/pin.svg';
-import PinFilledIC from '../../../public/res/ic/filled/pin.svg';
+const PlusIC = '/res/ic/outlined/plus.svg';
+const HashPlusIC = '/res/ic/outlined/hash-plus.svg';
+const HashSearchIC = '/res/ic/outlined/hash-search.svg';
+const PinIC = '/res/ic/outlined/pin.svg';
+const PinFilledIC = '/res/ic/filled/pin.svg';
 
 function DrawerHeader({ selectedTab, spaceId }) {
 	const [, forceUpdate] = useState({});

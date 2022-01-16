@@ -18,8 +18,8 @@ import SegmentControl from '../../atoms/segmented-controls/SegmentedControls';
 import PopupWindow from '../../molecules/popup-window/PopupWindow';
 import SettingTile from '../../molecules/setting-tile/SettingTile';
 
-import HashPlusIC from '../../../public/res/ic/outlined/hash-plus.svg';
-import CrossIC from '../../../public/res/ic/outlined/cross.svg';
+const HashPlusIC = '/res/ic/outlined/hash-plus.svg';
+const CrossIC = '/res/ic/outlined/cross.svg';
 
 function CreateRoom({ isOpen, onRequestClose }) {
 	const [isPublic, togglePublic] = useState(false);

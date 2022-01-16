@@ -31,10 +31,10 @@ import { MenuItem } from '../../atoms/context-menu/ContextMenu';
 import PowerLevelSelector from '../../molecules/power-level-selector/PowerLevelSelector';
 import Dialog from '../../molecules/dialog/Dialog';
 
-import ShieldEmptyIC from '../../../public/res/ic/outlined/shield-empty.svg';
-import ChevronRightIC from '../../../public/res/ic/outlined/chevron-right.svg';
-import ChevronBottomIC from '../../../public/res/ic/outlined/chevron-bottom.svg';
-import CrossIC from '../../../public/res/ic/outlined/cross.svg';
+const ShieldEmptyIC = '/res/ic/outlined/shield-empty.svg';
+const ChevronRightIC = '/res/ic/outlined/chevron-right.svg';
+const ChevronBottomIC = '/res/ic/outlined/chevron-bottom.svg';
+const CrossIC = '/res/ic/outlined/cross.svg';
 
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 

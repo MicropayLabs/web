@@ -21,12 +21,12 @@ import RoomHistoryVisibility from '../../molecules/room-history-visibility/RoomH
 import RoomEncryption from '../../molecules/room-encryption/RoomEncryption';
 import RoomPermissions from '../../molecules/room-permissions/RoomPermissions';
 
-import SettingsIC from '../../../public/res/ic/outlined/settings.svg';
-import SearchIC from '../../../public/res/ic/outlined/search.svg';
-import ShieldUserIC from '../../../public/res/ic/outlined/shield-user.svg';
-import LockIC from '../../../public/res/ic/outlined/lock.svg';
-import AddUserIC from '../../../public/res/ic/outlined/add-user.svg';
-import LeaveArrowIC from '../../../public/res/ic/outlined/leave-arrow.svg';
+const SettingsIC = '/res/ic/outlined/settings.svg';
+const SearchIC = '/res/ic/outlined/search.svg';
+const ShieldUserIC = '/res/ic/outlined/shield-user.svg';
+const LockIC = '/res/ic/outlined/lock.svg';
+const AddUserIC = '/res/ic/outlined/add-user.svg';
+const LeaveArrowIC = '/res/ic/outlined/leave-arrow.svg';
 
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 

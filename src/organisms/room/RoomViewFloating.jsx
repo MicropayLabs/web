@@ -10,8 +10,8 @@ import Text from '../../atoms/text/Text';
 import Button from '../../atoms/button/Button';
 import IconButton from '../../atoms/button/IconButton';
 
-import ChevronBottomIC from '../../../public/res/ic/outlined/chevron-bottom.svg';
-import TickMarkIC from '../../../public/res/ic/outlined/tick-mark.svg';
+const ChevronBottomIC = '/res/ic/outlined/chevron-bottom.svg';
+const TickMarkIC = '/res/ic/outlined/tick-mark.svg';
 
 import { getUsersActionJsx } from './common';
 

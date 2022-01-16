@@ -15,8 +15,8 @@ import Input from '../../atoms/input/Input';
 import PopupWindow from '../../molecules/popup-window/PopupWindow';
 import RoomTile from '../../molecules/room-tile/RoomTile';
 
-import CrossIC from '../../../public/res/ic/outlined/cross.svg';
-import HashSearchIC from '../../../public/res/ic/outlined/hash-search.svg';
+const CrossIC = '/res/ic/outlined/cross.svg';
+const HashSearchIC = '/res/ic/outlined/hash-search.svg';
 
 const SEARCH_LIMIT = 20;
 

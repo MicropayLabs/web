@@ -9,10 +9,10 @@ import Text from '../../atoms/text/Text';
 import RadioButton from '../../atoms/button/RadioButton';
 import { MenuItem } from '../../atoms/context-menu/ContextMenu';
 
-import BellIC from '../../../public/res/ic/outlined/bell.svg';
-import BellRingIC from '../../../public/res/ic/outlined/bell-ring.svg';
-import BellPingIC from '../../../public/res/ic/outlined/bell-ping.svg';
-import BellOffIC from '../../../public/res/ic/outlined/bell-off.svg';
+const BellIC = '/res/ic/outlined/bell.svg';
+const BellRingIC = '/res/ic/outlined/bell-ring.svg';
+const BellPingIC = '/res/ic/outlined/bell-ping.svg';
+const BellOffIC = '/res/ic/outlined/bell-off.svg';
 
 const items = [
 	{

@@ -15,15 +15,15 @@ import IconButton from '../../atoms/button/IconButton';
 import RoomSelector from '../../molecules/room-selector/RoomSelector';
 import RoomOptions from '../../molecules/room-optons/RoomOptions';
 
-import HashIC from '../../../public/res/ic/outlined/hash.svg';
-import HashGlobeIC from '../../../public/res/ic/outlined/hash-globe.svg';
-import HashLockIC from '../../../public/res/ic/outlined/hash-lock.svg';
-import SpaceIC from '../../../public/res/ic/outlined/space.svg';
-import SpaceGlobeIC from '../../../public/res/ic/outlined/space-globe.svg';
-import SpaceLockIC from '../../../public/res/ic/outlined/space-lock.svg';
-import PinIC from '../../../public/res/ic/outlined/pin.svg';
-import PinFilledIC from '../../../public/res/ic/filled/pin.svg';
-import VerticalMenuIC from '../../../public/res/ic/outlined/vertical-menu.svg';
+const HashIC = '/res/ic/outlined/hash.svg';
+const HashGlobeIC = '/res/ic/outlined/hash-globe.svg';
+const HashLockIC = '/res/ic/outlined/hash-lock.svg';
+const SpaceIC = '/res/ic/outlined/space.svg';
+const SpaceGlobeIC = '/res/ic/outlined/space-globe.svg';
+const SpaceLockIC = '/res/ic/outlined/space-lock.svg';
+const PinIC = '/res/ic/outlined/pin.svg';
+const PinFilledIC = '/res/ic/filled/pin.svg';
+const VerticalMenuIC = '/res/ic/outlined/vertical-menu.svg';
 
 function Selector({ roomId, isDM, drawerPostie, onClick }) {
 	const mx = initMatrix.matrixClient;

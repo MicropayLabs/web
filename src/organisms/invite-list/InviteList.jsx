@@ -14,7 +14,7 @@ import Spinner from '../../atoms/spinner/Spinner';
 import PopupWindow from '../../molecules/popup-window/PopupWindow';
 import RoomTile from '../../molecules/room-tile/RoomTile';
 
-import CrossIC from '../../../public/res/ic/outlined/cross.svg';
+const CrossIC = '/res/ic/outlined/cross.svg';
 
 function InviteList({ isOpen, onRequestClose }) {
 	const [procInvite, changeProcInvite] = useState(new Set());

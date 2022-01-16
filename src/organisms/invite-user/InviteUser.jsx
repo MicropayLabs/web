@@ -15,8 +15,8 @@ import Input from '../../atoms/input/Input';
 import PopupWindow from '../../molecules/popup-window/PopupWindow';
 import RoomTile from '../../molecules/room-tile/RoomTile';
 
-import CrossIC from '../../../public/res/ic/outlined/cross.svg';
-import UserIC from '../../../public/res/ic/outlined/user.svg';
+const CrossIC = '/res/ic/outlined/cross.svg';
+const UserIC = '/res/ic/outlined/user.svg';
 
 function InviteUser({ isOpen, roomId, searchTerm, onRequestClose }) {
 	const [isSearching, updateIsSearching] = useState(false);

@@ -23,9 +23,9 @@ import Header, { TitleWrapper } from '../../atoms/header/Header';
 import Avatar from '../../atoms/avatar/Avatar';
 import RoomOptions from '../../molecules/room-optons/RoomOptions';
 
-import UserIC from '../../../public/res/ic/outlined/user.svg';
-import ChevronBottomIC from '../../../public/res/ic/outlined/chevron-bottom.svg';
-import VerticalMenuIC from '../../../public/res/ic/outlined/vertical-menu.svg';
+const UserIC = '/res/ic/outlined/user.svg';
+const ChevronBottomIC = '/res/ic/outlined/chevron-bottom.svg';
+const VerticalMenuIC = '/res/ic/outlined/vertical-menu.svg';
 
 import { useForceUpdate } from '../../hooks/useForceUpdate';
 
