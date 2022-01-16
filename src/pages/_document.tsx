@@ -8,7 +8,7 @@ class MyDocument extends Document {
 
 	render() {
 		return (
-			<Html className='bg-light-canvas dark:bg-dark-canvas-inset'>
+			<Html className="bg-light-canvas dark:bg-dark-canvas-inset">
 				<Head>
 					<link
 						rel="apple-touch-icon"
@@ -31,18 +31,21 @@ class MyDocument extends Document {
 					<meta property="og:title" content="Micropay" />
 					<meta
 						property="og:description"
-						content="Micropay makes it easy to make a DAO on Ethereum."
+						content="Scalable infrastructure for decentralized communities."
 					/>
 					<meta property="og:image" content="/android-chrome-512x512.png" />
 					<meta name="twitter:card" content="/android-chrome-512x512.png" />
 					<meta name="twitter:title" content="Micropay" />
 					<meta
 						name="twitter:description"
-						content="Micropay makes it easy to make a DAO on Ethereum."
+						content="Scalable infrastructure for decentralized communities."
 					/>
 					<meta name="twitter:image" content="/android-chrome-192x192.png" />
 				</Head>
-				<body className="h-full overflow-hidden">
+				<body
+					id="appBody"
+					className="h-screen overflow-hidden bg-light-canvas dark:bg-dark-canvas-inset"
+				>
 					<Main />
 					<NextScript />
 				</body>

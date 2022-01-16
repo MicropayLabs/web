@@ -1,0 +1,121 @@
+ @use '../../partials/flex';
+@use '../../partials/text';
+@use '../../partials/dir';
+
+.room-view {
+  &__typing {
+    display: flex;
+    padding: var(--sp-ultra-tight) var(--sp-normal);
+    background: var(--bg-surface);
+    transition: transform 200ms ease-in-out;
+
+    & b {
+      color: var(--tc-surface-high);
+    }
+
+    & .text {
+      @extend .cp-txt__ellipsis;
+      @extend .cp-fx__item-one;
+
+      margin: 0 var(--sp-tight);
+    }
+
+    &--open {
+      transform: translateY(-99%);
+      & .bouncing-loader {
+        & > *,
+        &::after,
+        &::before {
+          animation: bouncing-loader 0.6s infinite alternate;
+        }
+      }
+    }
+  }
+
+  .bouncing-loader {
+    transform: translateY(2px);
+    margin: 0 calc(var(--sp-ultra-tight) / 2);
+  }
+  .bouncing-loader > div,
+  .bouncing-loader::before,
+  .bouncing-loader::after {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--tc-surface-high);
+    border-radius: 50%;
+  }
+  
+  
+  .bouncing-loader::before,
+  .bouncing-loader::after {
+    content: "";
+  }
+  
+  .bouncing-loader > div {
+    margin: 0 4px;
+  }
+  
+  .bouncing-loader > div {
+    animation-delay: 0.2s;
+  }
+  
+  .bouncing-loader::after {
+    animation-delay: 0.4s;
+  }
+  
+  @keyframes bouncing-loader {
+    to {
+      opacity: 0.1;
+      transform: translate3d(0, -4px, 0);
+    }
+  }
+
+  &__STB {
+    position: absolute;
+    @include dir.prop(right, var(--sp-normal), unset);
+    @include dir.prop(left, unset, var(--sp-normal));
+    bottom: 0;
+    border-radius: var(--bo-radius);
+    box-shadow: var(--bs-surface-border);
+    background-color: var(--bg-surface-low);
+    transition: transform 200ms ease-in-out;
+    transform: translateY(100%) scale(0);
+
+    &--open {
+      transform: translateY(-28px) scale(1);
+    }
+  }
+
+  &__unread {
+    position: absolute;
+    top: var(--sp-extra-tight);
+    @include dir.prop(right, var(--sp-extra-tight), unset);
+    @include dir.prop(left, unset, var(--sp-extra-tight));
+    z-index: 999;
+
+    display: none;
+    background-color: var(--bg-surface);
+    border-radius: var(--bo-radius);
+    box-shadow: var(--bs-primary-border);
+    overflow: hidden;
+
+    &--open {
+      display: flex;
+    }
+    
+    & .ic-btn {
+      padding: 6px var(--sp-extra-tight);
+      border-radius: 0;
+    }
+    & .btn-primary {
+      @extend .cp-fx__item-one;
+      @include dir.side(margin, 0, 1px);
+      border-radius: 0;
+      padding: 0 var(--sp-tight);
+      &:focus {
+        background-color: var(--bg-primary-hover);
+      }
+    }
+  }
+}
