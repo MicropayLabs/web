@@ -42,7 +42,10 @@ class MyDocument extends Document {
 					/>
 					<meta name="twitter:image" content="/android-chrome-192x192.png" />
 				</Head>
-				<body id="root" className="overflow-hidden">
+				<body
+					id="root"
+					className="overflow-hidden bg-light-canvas dark:bg-dark-canvas-inset"
+				>
 					<Main />
 					<NextScript />
 				</body>

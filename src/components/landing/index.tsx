@@ -23,7 +23,9 @@ export const Landing = ({ onLoggedIn }): JSX.Element => {
 				window.alert('ur ngmi - go install MetaMask you heathen');
 				return;
 			}
-			const provider = new ethers.providers.Web3Provider((window as any).ethereum);
+			const provider = new ethers.providers.Web3Provider(
+				(window as any).ethereum
+			);
 			const signer = provider.getSigner();
 			const publicAddress = await signer.getAddress();
 
@@ -73,7 +75,7 @@ export const Landing = ({ onLoggedIn }): JSX.Element => {
 				.then(toJSON)
 				.then(handleSignMessage) // Popup MetaMask confirmation modal to sign message
 				.then(handleAuthenticate) // Send signature to backend on the /auth route
-				.then(onLoggedIn) // Pass accessToken back to parent component (to save it in localStorage)
+				.then(onLoggedIn) // Pass accessToken back to parent component (to save it in localStorage?)
 				.catch((err) => {
 					window.alert(err);
 				});

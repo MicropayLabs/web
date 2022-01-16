@@ -14,7 +14,7 @@ function createTemporaryClient(baseUrl) {
 
 // async function startSsoLogin(baseUrl, type, idpId) {
 //   const client = createTemporaryClient(baseUrl);
-//   localStorage.setItem(cons.secretKey.BASE_URL, client.baseUrl);
+//   localStorage?.setItem(cons.secretKey.BASE_URL, client.baseUrl);
 //   window.location.href = client.getSsoLoginUrl(window.location.href, type, idpId);
 // }
 
@@ -48,6 +48,7 @@ async function loginWithToken(baseUrl, token) {
 	const myBaseUrl =
 		res?.well_known?.['m.homeserver']?.base_url || client.baseUrl;
 	updateLocalStore(res.access_token, res.device_id, res.user_id, myBaseUrl);
+	window.location.reload();
 }
 
 // eslint-disable-next-line camelcase
