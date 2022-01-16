@@ -1,5 +1,5 @@
 const cons = {
-	version: '0.0.1',
+	version: '0.1.0',
 	secretKey: {
 		ACCESS_TOKEN: 'access_token',
 		DEVICE_ID: 'device_id',

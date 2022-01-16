@@ -131,11 +131,10 @@ function Auth() {
 				</p>
 				<button
 					className={classnames(
-						'px-4 py-2 mt-8 mx-auto rounded-md',
+						'px-4 py-2 mt-8 mx-auto rounded-md border',
 						'text-light-orange-fg dark:text-dark-orange-fg',
 						'bg-light-orange-subtle dark:bg-dark-orange-subtle',
-						'border border-light-orange-emphasis dark:border-dark-orange-emphasis',
-						'hover:border-light-orange-fg dark:hover:border-dark-orange-fg',
+						'hover:bg-light-orange-muted/20 dark:hover:bg-dark-orange-muted/20',
 						'shadow-md shadow-light-shadow-md dark:shadow-dark-shadow-md',
 						'hover:shadow-lg hover:shadow-light-shadow-lg dark:hover:shadow-dark-shadow-lg'
 					)}

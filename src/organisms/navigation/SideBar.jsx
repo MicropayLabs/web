@@ -150,8 +150,8 @@ function SideBar() {
 		return noti;
 	}
 
-	// TODO: bellow operations are heavy.
-	// refactor this component into more smaller components.
+	// TODO: below operations are heavy.
+	// refactor this component into smaller components.
 	const dmsNoti = getDMsNoti();
 	const homeNoti = getHomeNoti();
 

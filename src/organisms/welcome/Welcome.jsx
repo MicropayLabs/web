@@ -7,11 +7,6 @@ function Welcome() {
 	return (
 		<div className="app-welcome flex--center">
 			<div>
-				<img
-					className="app-welcome__logo noselect"
-					src={'/res/svg/cinny.svg'}
-					alt="Cinny logo"
-				/>
 				<Text
 					className="app-welcome__heading"
 					variant="h1"

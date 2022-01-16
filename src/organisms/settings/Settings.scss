@@ -31,6 +31,7 @@
     margin-top: var(--sp-extra-tight);
     margin-bottom: var(--sp-normal);
     display: flex;
+    align-items: start;
 
     & > div {
       margin: 0 calc(var(--sp-loose) + var(--sp-ultra-tight));

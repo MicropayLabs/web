@@ -6,7 +6,7 @@ import Modal from 'react-modal';
 
 import navigation from '@lib/matrix/state/navigation';
 
-Modal.setAppElement('#root');
+Modal.setAppElement('#appBody');
 
 function RawModal({
 	className,

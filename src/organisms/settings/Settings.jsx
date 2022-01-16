@@ -35,7 +35,7 @@ const InfoIC = '/res/ic/outlined/info.svg';
 const PowerIC = '/res/ic/outlined/power.svg';
 const CrossIC = '/res/ic/outlined/cross.svg';
 
-import CinnySVG from '../../../public/res/svg/cinny.svg';
+const MicropaySVG = '/res/svg/micropay.svg';
 
 function GeneralSection() {
 	return (
@@ -160,8 +160,7 @@ function SecuritySection() {
 					.join(' ')}`}
 				content={
 					<Text variant="b3">
-						Use this device ID-key combo to verify or manage this session from
-						Element client.
+						Use this device ID-key combo to verify or manage this session.
 					</Text>
 				}
 			/>
@@ -171,7 +170,7 @@ function SecuritySection() {
 					<>
 						<Text variant="b3">
 							Export end-to-end encryption room keys to decrypt old messages in
-							other session. In order to encrypt keys you need to set a
+							another session. In order to encrypt keys you need to set a
 							password, which will be used while importing.
 						</Text>
 						<ExportE2ERoomKeys />
@@ -184,7 +183,7 @@ function SecuritySection() {
 					<>
 						<Text variant="b3">
 							{
-								"To decrypt older messages, Export E2EE room keys from Element (Settings > Security & Privacy > Encryption > Cryptography) and import them here. Imported keys are encrypted so you'll have to enter the password you set in order to decrypt it."
+								"To decrypt older messages, export E2EE room keys for that client and then import them here. Imported keys are encrypted so you'll have to enter the password you set in order to decrypt it."
 							}
 						</Text>
 						<ImportE2ERoomKeys />
@@ -199,25 +198,27 @@ function AboutSection() {
 	return (
 		<div className="settings-content settings__about">
 			<div className="set-about__branding">
-				<img width="60" height="60" src={CinnySVG} alt="Cinny logo" />
+				<img width="60" height="60" src={MicropaySVG} alt="Micropay logo" />
 				<div>
 					<Text variant="h2">
-						Cinny
+						Micropay
 						<span
 							className="text text-b3"
 							style={{ margin: '0 var(--sp-extra-tight)' }}
 						>{`v${cons.version}`}</span>
 					</Text>
-					<Text>Yet another matrix client</Text>
+					<Text>Scalable infrastructure for decentralized organizations</Text>
 
 					<div className="set-about__btns">
 						<Button
-							onClick={() => window.open('https://github.com/ajbura/cinny')}
+							onClick={() => window.open('https://github.com/micropaylabs/web')}
 						>
-							Source code
+							GitHub
 						</Button>
-						<Button onClick={() => window.open('https://cinny.in/#sponsor')}>
-							Support
+						<Button
+							onClick={() => window.open('https://twitter.com/notjustinshaw')}
+						>
+							Twitter
 						</Button>
 					</div>
 				</div>

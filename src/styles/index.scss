@@ -1,11 +1,17 @@
+@import './main.scss';
 @import '../partials/dir.scss';
 @import '../partials/flex.scss';
 @import '../partials/text.scss';
 @import './font-face.css';
-@import './main.scss';
 @import '../layouts/client/Client.scss';
+@import '../atoms/avatar/Avatar.scss';
 @import '../atoms/badge/NotificationBadge.scss';
 @import '../atoms/button/Button.scss';
+@import '../atoms/button/Checkbox.scss';
+@import '../atoms/button/IconButton.scss';
+@import '../atoms/button/RadioButton.scss';
+@import '../atoms/button/Toggle.scss';
+@import '../atoms/button/_state.scss';
 @import '../atoms/chip/Chip.scss';
 @import '../atoms/context-menu/ContextMenu.scss';
 @import '../atoms/divider/Divider.scss';
@@ -52,6 +58,7 @@
 @import '../organisms/navigation/Drawer.scss';
 @import '../organisms/navigation/DrawerBreadcrumb.scss';
 @import '../organisms/navigation/Navigation.scss';
+@import '../organisms/navigation/SideBar.scss';
 @import '../organisms/profile-editor/ProfileEditor.scss';
 @import '../organisms/profile-viewer/ProfileViewer.scss';
 @import '../organisms/public-rooms/PublicRooms.scss';
