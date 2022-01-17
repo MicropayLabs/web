@@ -20,7 +20,12 @@ class Settings extends EventEmitter {
 	constructor() {
 		super();
 
-		this.themes = ['', 'silver-theme', 'dark-theme', 'butter-theme'];
+		this.themes = [
+			'', // light theme
+			'silver-theme',
+			'dark-theme',
+			'dimmed-theme',
+		];
 		this.themeIndex = this.getThemeIndex();
 
 		this.useSystemTheme = this.getUseSystemTheme();
@@ -74,7 +79,7 @@ class Settings extends EventEmitter {
 		if (typeof this.useSystemTheme === 'boolean') return this.useSystemTheme;
 
 		const settings = getSettings();
-		if (settings === null) return false;
+		if (settings === null) return true;
 		if (typeof settings.useSystemTheme === 'undefined') return false;
 		return settings.useSystemTheme;
 	}
