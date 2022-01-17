@@ -44,7 +44,7 @@ class MyDocument extends Document {
 				</Head>
 				<body
 					id="appBody"
-					className="h-screen overflow-hidden bg-light-canvas dark:bg-dark-canvas-inset"
+					className="system-theme h-screen overflow-hidden bg-light-canvas dark:bg-dark-canvas-inset"
 				>
 					<Main />
 					<NextScript />
