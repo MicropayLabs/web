@@ -8,7 +8,7 @@ class MyDocument extends Document {
 
 	render() {
 		return (
-			<Html className="bg-light-canvas dark:bg-dark-canvas-inset">
+			<Html>
 				<Head>
 					<link
 						rel="apple-touch-icon"
@@ -44,7 +44,7 @@ class MyDocument extends Document {
 				</Head>
 				<body
 					id="appBody"
-					className="system-theme h-screen overflow-hidden bg-light-canvas dark:bg-dark-canvas-inset"
+					className="system-theme h-screen overflow-hidden"
 				>
 					<Main />
 					<NextScript />
