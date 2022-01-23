@@ -114,6 +114,9 @@
     margin: var(--sp-extra-tight);
     @include dir.side(margin, var(--left-margin), var(--right-margin));
   }
+  & .emoji-row {
+    display: flex;
+  }
   & .emoji {
     width: 38px;
     height: 38px;
