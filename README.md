@@ -34,3 +34,6 @@ To start the production version of the website, run:
 ```bash
 $ npm run start
 ```
+
+## License
+See also the [Cinny project](https://github.com/ajbura/cinny) for a fantastic Matrix Client. Components from their project are used under their [license](https://github.com/ajbura/cinny/blob/dev/LICENSE).
