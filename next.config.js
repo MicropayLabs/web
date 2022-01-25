@@ -15,6 +15,11 @@ module.exports = {
 	async redirects() {
 		return [
 			{
+				source: '/_next/static/chunks/pages/olm.wasm',
+				destination: '/olm.wasm',
+				permanent: false,
+			},
+			{
 				source: '/channels',
 				destination: '/channels/@me',
 				permanent: false,
