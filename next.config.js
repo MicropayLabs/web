@@ -36,7 +36,6 @@ module.exports = {
 				fs: require.resolve('browserify-fs'),
 				stream: require.resolve('stream-browserify'),
 				util: require.resolve('util/'),
-				assert: require.resolve('assert/'),
 			},
 		};
 		// config.output.webassemblyModuleFilename = 'static/wasm/[modulehash].wasm';

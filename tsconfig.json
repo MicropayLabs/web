@@ -10,9 +10,15 @@
 		"moduleResolution": "node",
 		"noEmit": true,
 		"paths": {
+			"@atoms/*": ["../cinny/src/app/atoms/*"],
 			"@components/*": ["components/*"],
+			"@hooks/*": ["../cinny/src/app/hooks/*"],
 			"@lib/*": ["lib/*"],
 			"@layouts/*": ["layouts/*"],
+			"@molecules/*": ["../cinny/src/app/molecules/*"],
+			"@organisms/*": ["../cinny/src/app/organisms/*"],
+			"@partials/*": ["../cinny/src/app/partials/*"],
+			"@templates/*": ["../cinny/src/app/templates/*"]
 		},
 		"resolveJsonModule": true,
 		"skipLibCheck": true,

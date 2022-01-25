@@ -43,7 +43,7 @@ class MyDocument extends Document {
 					<meta name="twitter:image" content="/android-chrome-192x192.png" />
 				</Head>
 				<body
-					id="appBody"
+					id="root"
 					className="system-theme h-screen overflow-hidden"
 				>
 					<Main />
