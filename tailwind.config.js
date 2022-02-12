@@ -1,5 +1,5 @@
 module.exports = {
-	content: ['./src/**/*.{js,ts,jsx,tsx}'],
+	content: ['layouts/**/*.{js,ts,jsx,tsx}', 'pages/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		extend: {
 			colors: {
@@ -24,7 +24,13 @@ module.exports = {
 					'Segoe UI Emoji',
 					'Segoe UI Symbol',
 				],
-				mono: ['SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', 'Courier'],
+				mono: [
+					'SFMono-Regular',
+					'Consolas',
+					'Liberation Mono',
+					'Menlo',
+					'Courier',
+				],
 				display: [
 					'InterUI',
 					'-apple-system',

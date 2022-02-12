@@ -16,6 +16,7 @@
 		"babel-loader": "^8.2.3",
 		"babel-polyfill": "^6.26.0",
 		"browser-encrypt-attachment": "^0.3.0",
+		"classnames": "^2.3.1",
 		"copy-webpack-plugin": "^10.2.0",
 		"dateformat": "^4.5.1",
 		"emojibase-data": "^6.2.0",

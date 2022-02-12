@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
 		"allowJs": true,
-		"baseUrl": "src",
+		"baseUrl": ".",
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 		"jsx": "preserve",
@@ -10,9 +10,16 @@
 		"moduleResolution": "node",
 		"noEmit": true,
 		"paths": {
-			"@components/*": ["components/*"],
+			"@atoms/*": ["cinny/src/app/atoms/*"],
+			"@hooks/*": ["cinny/src/app/hooks/*"],
 			"@lib/*": ["lib/*"],
 			"@layouts/*": ["layouts/*"],
+			"@matrix/*": ["cinny/src/client/*"],
+			"@molecules/*": ["cinny/src/app/molecules/*"],
+			"@organisms/*": ["cinny/src/app/organisms/*"],
+			"@partials/*": ["cinny/src/app/partials/*"],
+			"@templates/*": ["cinny/src/app/templates/*"],
+			"@util/*": ["cinny/src/util/*"],
 		},
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
