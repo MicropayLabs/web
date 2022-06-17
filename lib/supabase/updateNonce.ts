@@ -16,6 +16,6 @@ export const updateNonce = async (publicAddress: string) => {
 	if (error) {
 		throw new Error(error.message);
 	} else {
-		return data[0]; // TODO: handle empty data
+		return data[0];
 	}
 };

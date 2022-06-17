@@ -117,31 +117,34 @@ function Auth() {
 	return (
 		<main className="flex flex-col w-screen h-screen">
 			{IS_TRON_THEMED && <Grid />}
-			<div
-				className={classnames(
-					'max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8',
-					'flex-1 flex flex-col justify-center mx-auto'
-				)}
-			>
-				<h2 className="text-3xl font-extrabold text-light-fg-muted dark:text-dark-fg-muted sm:text-4xl">
-					<span className="block">Welcome to Micropay</span>
-				</h2>
-				<p className="mt-4 text-lg leading-6 text-light-fg-subtle dark:text-dark-fg-subtle">
-					Scalable infrastructure for decentralized organizations.
-				</p>
-				<button
+			<div className="flex-1 flex flex-col justify-center">
+				<div
 					className={classnames(
-						'px-4 py-2 mt-8 mx-auto rounded-md border',
-						'text-light-orange-fg dark:text-dark-orange-fg',
-						'bg-light-orange-subtle dark:bg-dark-orange-subtle',
-						'hover:bg-light-orange-muted/20 dark:hover:bg-dark-orange-muted/20',
-						'shadow-md shadow-light-shadow-md dark:shadow-dark-shadow-md',
-						'hover:shadow-lg hover:shadow-light-shadow-lg dark:hover:shadow-dark-shadow-lg'
+						'max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8',
+						'flex flex-col justify-center mx-auto z-10',
+						IS_TRON_THEMED && 'bg-white rounded-lg backdrop-blur-md'
 					)}
-					onClick={() => isClickable && handleClick()}
 				>
-					{message}
-				</button>
+					<h2 className="text-3xl font-extrabold text-light-fg-muted dark:text-dark-fg-muted sm:text-4xl">
+						<span className="block">Welcome to Micropay</span>
+					</h2>
+					<p className="mt-4 text-lg leading-6 text-light-fg-subtle dark:text-dark-fg-subtle">
+						Scalable infrastructure for decentralized organizations.
+					</p>
+					<button
+						className={classnames(
+							'px-4 py-2 mt-8 mx-auto rounded-md border',
+							'text-light-orange-fg dark:text-dark-orange-fg',
+							'bg-light-orange-subtle dark:bg-dark-orange-subtle',
+							'hover:bg-light-orange-muted/20 dark:hover:bg-dark-orange-muted/20',
+							'shadow-md shadow-light-shadow-md dark:shadow-dark-shadow-md',
+							'hover:shadow-lg hover:shadow-light-shadow-lg dark:hover:shadow-dark-shadow-lg'
+						)}
+						onClick={() => isClickable && handleClick()}
+					>
+						{message}
+					</button>
+				</div>
 			</div>
 			<Footer />
 		</main>

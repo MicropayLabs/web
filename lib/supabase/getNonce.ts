@@ -13,6 +13,6 @@ export const getNonce = async (publicAddress: string): Promise<any> => {
 	if (error) {
 		throw new Error(error.message);
 	} else {
-		return data[0]; // TODO: handle empty data
+		return data[0];
 	}
 };
